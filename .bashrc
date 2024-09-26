@@ -12,7 +12,7 @@ fi
 export PATH
 
 # aliases
-alias ls="exa"
+alias ls="eza"
 
 # adding golang to the path
 export PATH=$PATH:$HOME/go/bin
