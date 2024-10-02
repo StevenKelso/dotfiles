@@ -20,3 +20,6 @@ export PATH=$PATH:$HOME/go/bin
 # set neovim as the default text editor
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+# set prompt
+PS1="[\u@\H \w]\$ "
