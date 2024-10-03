@@ -22,4 +22,4 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 # set prompt
-PS1="[\u@\H \w]\$ "
+PS1="[\u@\H]\n[\w]\$ "

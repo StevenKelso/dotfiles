@@ -1,0 +1,22 @@
+# settings
+width=420
+height=520
+columns=1
+show=drun
+prompt=Search...
+filter_rate=50
+allow_images=true
+image_size=20
+insensitive=true
+
+# navigation
+key_down=Ctrl-j
+key_up=Ctrl-k
+key_left=Ctrl-h
+key_right=Ctrl-l
+
+# expand tab
+key_expand=Ctrl-o
+
+# exit wofi
+key_exit=Ctrl-bracketleft
