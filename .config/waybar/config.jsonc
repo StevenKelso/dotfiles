@@ -56,7 +56,7 @@
     "clock": {
         "interval": 60,
         "tooltip": true,
-        "format": "{:%H:%M}"
+        "format": "{:%A, %b %d -- %I:%M %p}"
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",

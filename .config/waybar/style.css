@@ -2,12 +2,14 @@
     border: none;
     border-radius: 0px;
     font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: bold;
     min-height: 20px;
 }
 
 window#waybar {
-    background: #3C3836;
+    /* background: #3C3836; */
+    background: none;
     margin: 0px;
     padding: 0px;
 }
@@ -66,9 +68,6 @@ tooltip {
     border-color: #ebdbb2;
     color: #ebdbb2;
     padding: 0px 10px;
-    margin: 0px;
-    margin-top: 5px;
-    margin-bottom: 0px;
 }
 
 #workspaces {
@@ -88,6 +87,7 @@ tooltip {
     border-radius: 4px 0px 0px 4px;
     border-width: 2px;
     border-right: 0px;
+    padding-top: 4px;
 }
 
 #clock {
@@ -95,6 +95,7 @@ tooltip {
     border-width: 2px;
     border-left: 0px;
     border-right: 0px;
+    padding-top: 5px;
 }
 
 #network {
