@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0px;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-family: JetBrainsMono Nerd Font;
     font-size: 15px;
     font-weight: bold;
     min-height: 20px;
@@ -103,4 +103,5 @@ tooltip {
     border-width: 2px;
     border-left: 0px;
     margin-right: 4px;
+    padding-top: 5px;
 }

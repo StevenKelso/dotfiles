@@ -21,5 +21,5 @@ export PATH=$PATH:$HOME/go/bin
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# set prompt
-PS1="[\u@\H]\n[\w]\$ "
+# add starship prompt
+eval "$(starship init bash)"
