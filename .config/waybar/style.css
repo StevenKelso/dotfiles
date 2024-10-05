@@ -19,7 +19,7 @@ tooltip {
     border-radius: 4px;
     border-width: 2px;
     border-style: solid;
-    border-color: #3C3836;
+    border-color: #928374;
 }
 
 #workspaces button {
@@ -65,7 +65,7 @@ tooltip {
 #clock,
 #network {
     border-style: solid;
-    border-color: #ebdbb2;
+    border-color: #928374;
     color: #ebdbb2;
     padding: 0px 10px;
 }
