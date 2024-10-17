@@ -44,7 +44,7 @@ tooltip {
 }
 
 #workspaces button.visible {
-    color: #ebdbb2;
+    color: #D4BE98;
 }
 
 #workspaces button:hover {
@@ -52,7 +52,7 @@ tooltip {
 }
 
 #workspaces button.active {
-    color: #ebdbb2;
+    color: #D4BE98;
 }
 
 #workspaces button.urgent {
@@ -65,8 +65,8 @@ tooltip {
 #clock,
 #network {
     border-style: solid;
-    border-color: #928374;
-    color: #ebdbb2;
+    border-color: #D8A657;
+    color: #D4BE98;
     padding: 0px 10px;
 }
 
