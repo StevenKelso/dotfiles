@@ -1,5 +1,3 @@
-# .bashrc
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -11,16 +9,26 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
-# aliases
-alias ls="eza"
-alias ll="eza -la"
-
-# adding golang to the path
+# ---- golang ----
 export PATH=$PATH:$HOME/go/bin
 
-# set neovim as the default text editor
+# ---- neovim ----
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# add starship prompt
+# ---- starship ----
 eval "$(starship init bash)"
+
+# ---- eza ----
+alias ls="eza"
+alias ll="eza -la"
+alias lst="eza -TL2"
+alias lsta="eza -aTL2"
+
+# ---- bat ----
+alias cat="bat"
+
+# ---- fzf ----
+eval "$(fzf --bash)"
+alias fzf='fzf --preview="bat --color=always {}"'
+alias fzn='nvim $(fzf --preview="bat --color=always {}")'
