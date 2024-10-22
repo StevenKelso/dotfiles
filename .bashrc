@@ -9,6 +9,12 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+# ---- history ----
+HISTCONTROL=ignorespace
+HISTCONTROL=ignoredups
+HISTSIZE=1000
+HISTFILESIZE=2000
+
 # ---- golang ----
 export PATH=$PATH:$HOME/go/bin
 
@@ -30,5 +36,12 @@ alias cat="bat"
 
 # ---- fzf ----
 eval "$(fzf --bash)"
+export FZF_DEFAULT_OPTS='--height 50% --border'
 alias fzf='fzf --preview="bat --color=always {}"'
 alias fzn='nvim $(fzf --preview="bat --color=always {}")'
+
+# ---- convenience ----
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias bashrc="nvim ~/.bashrc"
