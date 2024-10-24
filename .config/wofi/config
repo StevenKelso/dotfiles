@@ -1,22 +1,23 @@
-# settings
-width=420
-height=520
+# ---- appearance ----
+width=350
+height=401
 columns=1
-show=drun
-prompt=Search...
-filter_rate=50
-allow_images=true
-image_size=20
-insensitive=true
+prompt=
+allow_images=false
+hide_search=false
+hide_scroll=true
 
-# navigation
+# ---- settings ---
+show=drun
+filter_rate=50
+insensitive=true
+dynamic_lines=true
+no_actions=true
+normal_window=false
+
+# ---- keybinds ----
+key_left=Ctrl-h
 key_down=Ctrl-j
 key_up=Ctrl-k
-key_left=Ctrl-h
 key_right=Ctrl-l
-
-# expand tab
-key_expand=Ctrl-o
-
-# exit wofi
 key_exit=Ctrl-bracketleft

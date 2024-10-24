@@ -1,48 +1,48 @@
 window {
+margin: 0px;
+border: 1px solid #D8A657;
+border-radius: 5px;
+background-color: #282828;
+font-family: "FiraMono Nerd Font";
+font-size: 18px;
+}
+
+#outer-box {
 margin: 5px;
-border: 2px solid #D8A657;
-background-color: #ebdbb2;
-font-family: Hack Nerd Font;
-font-size: 15px;
-border-radius: 10px;
+background-color: #282828;
 }
 
 #input {
 margin: 5px;
-border: 2px solid #282828;
+border: 1px solid #D8A657;
+border-radius: 5px;
 background-color: #282828;
-font-size: 18px;
-    color: #ebdbb2;
-}
-
-#inner-box {
-margin: 5px;
-border: 2px solid #282828;
-background-color: #282828;
-}
-
-#outer-box {
-margin: 2px;
-border: 2px solid #282828;
-background-color: #282828;
-border-radius: 10px;
+color: #7DAEA3;
+box-shadow: none;
 }
 
 #scroll {
-margin: 5px;
-border: 2px solid #282828;
+margin: 3px;
+border-radius: 5px;
+background-color: #282828;
+}
+
+#inner-box {
+margin: 3px;
 background-color: #282828;
 }
 
 #text {
-margin: 5px;
-border: 2px #282828;
-color: #ebdbb2;
-}  
- #entry:selected {
-background-color: #ebdbb2;
-border-radius: 5px;
+margin: 3px;
+color: #D4BE98;
 }
+
+#entry:selected {
+background-color: #7DAEA3;
+border-radius: 5px;
+outline: none;
+}
+
 #text:selected {
 color: #282828;
 }
