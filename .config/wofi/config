@@ -16,8 +16,6 @@ no_actions=true
 normal_window=false
 
 # ---- keybinds ----
-key_left=Ctrl-h
-key_down=Ctrl-j
-key_up=Ctrl-k
-key_right=Ctrl-l
+key_down=Ctrl-n
+key_up=Ctrl-p
 key_exit=Ctrl-bracketleft

@@ -14,8 +14,7 @@ background-color: #282828;
 
 #input {
 margin: 5px;
-border: 1px solid #D8A657;
-border-radius: 5px;
+border: none;
 background-color: #282828;
 color: #7DAEA3;
 box-shadow: none;
@@ -38,7 +37,7 @@ color: #D4BE98;
 }
 
 #entry:selected {
-background-color: #7DAEA3;
+background-color: #928374;
 border-radius: 5px;
 outline: none;
 }

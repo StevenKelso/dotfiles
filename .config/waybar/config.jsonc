@@ -6,11 +6,10 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "pulseaudio"
+        "clock"
     ],
     "modules-right": [
-        "hyprland/language",
-        "clock",
+        "pulseaudio",
         "network"
     ],
     "hyprland/workspaces": {
