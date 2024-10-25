@@ -1,2 +1,2 @@
-require("vim-options")
-require("config.lazy")
+require("steven.core")
+require("steven.lazy")

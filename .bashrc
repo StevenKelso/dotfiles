@@ -25,13 +25,17 @@ export VISUAL='nvim'
 # ---- starship ----
 eval "$(starship init bash)"
 
-# ---- eza ----
+# ---- ls / eza ----
 alias ls="eza"
 alias ll="eza -la"
 alias lst="eza -TL2"
+alias lst3="eza -TL3"
+alias lst4="eza -TL4"
 alias lsta="eza -aTL2"
+alias lsta3="eza -aTL3"
+alias lsta4="eza -aTL4"
 
-# ---- bat ----
+# ---- cat / bat ----
 alias cat="bat"
 
 # ---- fzf ----

@@ -1628,6 +1628,7 @@ class narrow(Command):
     Show only the files selected right now. If no files are selected,
     disable narrowing.
     """
+
     def execute(self):
         if self.fm.thisdir.marked_items:
             selection = [f.basename for f in self.fm.thistab.get_selection()]
@@ -1670,6 +1671,7 @@ class filter_stack(Command):
         filter_stack clear
         filter_stack show
     """
+
     def execute(self):
         from ranger.core.filter_stack import SIMPLE_FILTERS, FILTER_COMBINATORS
 
@@ -1757,6 +1759,7 @@ class reset_previews(Command):
 
     Reset the file previews.
     """
+
     def execute(self):
         self.fm.previews = {}
         self.fm.ui.need_redraw = True

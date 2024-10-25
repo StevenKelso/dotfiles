@@ -2,6 +2,9 @@
     font-family: FiraMono Nerd Font;
     font-size: 15px;
     font-weight: bold;
+}
+
+#waybar {
     background: #3C3836;
 }
 
@@ -18,7 +21,9 @@
 }
 
 #workspaces button {
-    color: #D8A657;
+    background: #3C3836;
+    color: #D4BE98;
+    border-radius: 10px;
 }
 
 #workspaces button.persistent {
@@ -34,15 +39,16 @@
 }
 
 #workspaces button.visible {
-    color: #D4BE98;
-}
-
-#workspaces button:hover {
-    color: #d79921;
+    background: #D4BE98;
+    color: #3C3836;
 }
 
 #workspaces button.active {
-    color: #D4BE98;
+    background: #D4BE98;
+    color: #3C3836;
+}
+
+#workspaces button:hover {
 }
 
 #workspaces button.urgent {
