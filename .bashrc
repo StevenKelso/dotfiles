@@ -35,9 +35,6 @@ alias lsta="eza -aTL2"
 alias lsta3="eza -aTL3"
 alias lsta4="eza -aTL4"
 
-# ---- cat / bat ----
-alias cat="bat"
-
 # ---- fzf ----
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--height 50% --border'
