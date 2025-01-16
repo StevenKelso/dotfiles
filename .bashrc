@@ -9,23 +9,23 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
-# ---- history ----
+# history
 HISTCONTROL=ignorespace
 HISTCONTROL=ignoredups
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# ---- golang ----
+# golang
 export PATH=$PATH:$HOME/go/bin
 
-# ---- neovim ----
+# neovim
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# ---- starship ----
+# starship
 eval "$(starship init bash)"
 
-# ---- ls / eza ----
+# ls / eza
 alias ls="eza"
 alias ll="eza -la"
 alias lst="eza -TL2"
@@ -35,13 +35,13 @@ alias lsta="eza -aTL2"
 alias lsta3="eza -aTL3"
 alias lsta4="eza -aTL4"
 
-# ---- fzf ----
+# fzf
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--height 50% --border'
 alias fzf='fzf --preview="bat --color=always {}"'
 alias fzn='nvim $(fzf --preview="bat --color=always {}")'
 
-# ---- convenience ----
+# convenience
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
