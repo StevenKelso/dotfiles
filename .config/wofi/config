@@ -1,4 +1,4 @@
-# ---- appearance ----
+# appearance
 width=350
 height=401
 columns=1
@@ -7,7 +7,7 @@ allow_images=false
 hide_search=false
 hide_scroll=true
 
-# ---- settings ---
+# settings
 show=drun
 filter_rate=50
 insensitive=true
@@ -15,7 +15,7 @@ dynamic_lines=true
 no_actions=true
 normal_window=false
 
-# ---- keybinds ----
-key_down=Ctrl-n
-key_up=Ctrl-p
+# keybinds
+key_down=Ctrl-j
+key_up=Ctrl-k
 key_exit=Ctrl-bracketleft
