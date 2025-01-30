@@ -1,43 +1,62 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 35,
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "pulseaudio",
-        "network"
-    ],
+    "modules-left": ["cpu", "memory", "disk", "hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "pulseaudio", "network", "custom/power", "battery"],
+
     "hyprland/workspaces": {
+        "tooltip": false,
         "disable-scroll": true,
         "all-outputs": true,
         "show-special": true,
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-              "1": "1",
-              "2": "2",
-              "3": "3",
-              "4": "4",
-              "5": "5",
-              "6": "6",
-              "7": "7",
-              "8": "8",
-              "9": "9",
-              "10": "10",
-              "urgent": "",
-              "default": "󰐗",
-              "magic": "󰓏"
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            //"6": "",
+            //"active": "",
+            "urgent": "",
+            "default": "󰐗",
+            "magic": "󰓏"
         }
     },
+
+    "cpu": {
+        "tooltip": false,
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10
+    },
+
+    "memory": {
+        "tooltip": false,
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
+    },
+
+    "disk": {
+        "tooltip": false,
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "path": "/"
+    },
+
+    "clock": {
+        "tooltip": false,
+        "interval": 60,
+        "format": " {:%A - %b %d, %I:%M %p}"
+    },
+
     "pulseaudio": {
+        "tooltip": false,
+        "scroll-step": 5,
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% Mic",
         "format-source-muted": "",
@@ -52,17 +71,36 @@
         },
         "on-click": "pavucontrol"
     },
-    "clock": {
-        "interval": 60,
-        "tooltip": true,
-        "format": "{:%A, %b %d -- %I:%M %p}"
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
     },
+
     "network": {
+        "tooltip": false,
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25
+    },
+
+    "custom/power": {
+        "tooltip": false,
+        "format": "⏻  "
+        //"on-click": "bash ~/.config/wofi/powermenu.sh",
+        //"on-click-right": "killall wofi"
     }
 }
