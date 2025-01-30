@@ -1,0 +1,5 @@
+configuration {
+    font: "FiraMono Nerd Font 12";
+    modes: "run,drun";
+    show-icons: false;
+}
