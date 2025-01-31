@@ -1,5 +1,10 @@
 configuration {
     font: "FiraMono Nerd Font 12";
-    modes: "run,drun";
     show-icons: false;
+    kb-row-up: "Control+k";
+	kb-row-down: "Control+j";
+    kb-accept-entry: "Return";
+    kb-remove-to-eol: "";
+    kb-cancel: "Control+bracketleft,Escape";
+    cycle: false;
 }
