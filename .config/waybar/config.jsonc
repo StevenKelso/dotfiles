@@ -86,7 +86,8 @@
     },
 
     "battery": {
-        "bat": "BAT0",
+        "tooltip": false,
+        "bat": "BAT1",
         "interval": 60,
         "states": {
             "warning": 30,
