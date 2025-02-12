@@ -178,7 +178,7 @@ window#waybar {
     background: #32302f; 
     border-bottom: 3px;
     border-style: solid;
-    border-color: #f38ba8;
+    border-color: #E4CAAF;
 }
 
 #network.disconnected:hover {
