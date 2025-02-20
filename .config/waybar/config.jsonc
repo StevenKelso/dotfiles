@@ -1,12 +1,16 @@
 {
     "layer": "top",
     "position": "top",
-    "modules-left": ["cpu", "memory", "disk", "hyprland/workspaces"],
+    "margin-top": 5,
+    "margin-left": 5,
+    "margin-right": 5,
+
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "network", "custom/power", "battery"],
+    "modules-right": ["tray", "pulseaudio", "network", "battery", "custom/power"],
 
     "hyprland/workspaces": {
-        "tooltip": false,
+        "tooltip": true,
         "disable-scroll": true,
         "all-outputs": true,
         "show-special": true,
@@ -26,39 +30,23 @@
         }
     },
 
-    "cpu": {
-        "tooltip": false,
-        "interval": 10,
-        "format": " {load:2.2f}%",
-        "max-length": 10
-    },
-
-    "memory": {
-        "tooltip": false,
-        "interval": 30,
-        "format": " {}%",
-        "max-length": 10
-    },
-
-    "disk": {
-        "tooltip": false,
-        "interval": 30,
-        "format": " {percentage_used}%",
-        "path": "/"
-    },
-
     "clock": {
-        "tooltip": false,
+        "tooltip": true,
         "interval": 60,
         "format": " {:%A - %b %d, %I:%M %p}"
     },
 
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+
     "pulseaudio": {
-        "tooltip": false,
+        "tooltip": true,
         "scroll-step": 5,
         "format": "{volume}% {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% Mic",
+        "format-source": " {volume}% Mic",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -72,13 +60,8 @@
         "on-click": "pavucontrol"
     },
 
-    "tray": {
-        "icon-size": 21,
-        "spacing": 10
-    },
-
     "network": {
-        "tooltip": false,
+        "tooltip": true,
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠",
@@ -86,7 +69,7 @@
     },
 
     "battery": {
-        "tooltip": false,
+        "tooltip": true,
         "bat": "BAT1",
         "interval": 60,
         "states": {
@@ -99,8 +82,8 @@
     },
 
     "custom/power": {
-        "tooltip": false,
-        "format": "⏻  "
+        "tooltip": true,
+        "format": "⏻"
         //"on-click": "bash ~/.config/wofi/powermenu.sh",
         //"on-click-right": "killall wofi"
     }

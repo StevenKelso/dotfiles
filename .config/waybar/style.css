@@ -1,265 +1,88 @@
 * {
-    border: none;
-    border-radius: 10;
     font-family: FiraMono Nerd Font;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
-    min-height: 10px;
+    min-height: 0px;
+    padding: 0;
+    border: none;
+    border-radius: 5;
 }
 
 window#waybar {
-    background: transparent;
+    background: #1d2021;
+    border: 2px solid #3c3836;
 }
 
-#network {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 20px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
-}
-
-#network:hover {
-    color: #d4be98;
-    background: #32302f; 
-}
-
-#battery {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s; 
-}
-
-#battery:hover {
-    color: #d4be98;
-    background: #32302f;
-}
-
-#pulseaudio {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    padding: 8px;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
-}
-
-#pulseaudio:hover {
-    background: #32302f;
-    color: #d4be98;
-}
-
-#pulseaudio.muted {
-    color: #d4be98;
-    background: #32302f; 
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #e4caaf;
-    transition: 0.3s;
-}
-
-#pulseaudio.muted:hover {
-    background: #32302f;
-    color: #d4be98; 
-}
-
-#clock {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
-}
-
-#clock:hover {
-    color: #d4be98; 
-    background: #32302f;
-}
-
-#disk {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
-}
-
-#disk:hover {
-    color: #d4be98; 
-    background: #32302f;
-}
-
-#memory {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    margin-bottom: 0px;
-    padding-right: 10px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
-}
-
-#memory:hover {
-    color: #d4be98; 
-    background: #32302f;
-}
-
-#cpu {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    margin-bottom: 0px;
-    padding-right: 10px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
-}
-
-#cpu:hover {
-    color: #d4be98; 
-    background: #32302f;
-}
-
-#network.disconnected {
-    color: #d4be98;
-    background: #32302f; 
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-}
-
-#network.disconnected:hover {
-    background: #32302f;
-    color: #d4be98; 
-}
-
-#custom-power {
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: 8px;
-    margin-right: 17px;
-    padding-left: 15px;
-    padding-right: 0px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
-}
-
-#custom-power:hover {
-    background: #32302f;
-    color: #d4be98;
+tooltip {
+    background-color: #1d2021;
+    border: 2px solid #7c6f64;
 }
 
 #workspaces {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-right: 8px;
-    padding-left: 5px;
-    background: #32302f; 
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    color: #d4be98;
-    transition: 0.3s;
+    background-color: #303536;
+    margin: 6px 0px 6px 6px;
+    border: 2px solid #434a4c;
 }
 
 #workspaces button {
-    color: #d4be98;
-    transition: 0.3s;
+    all: initial;
+    min-width: 0;
+    box-shadow: inset 0 -3px transparent;
+    padding: 2px 4px;
+    color: #c7ab7a;
 }
 
-#workspaces button:hover {
-    background: transparent;
-    color: transparent;
+#workspaces button.focused {
+    color: #ddc7a1;
+}
+
+#workspaces button.urgent {
+    background-color: #e78a4e;
+}
+
+#clock {
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+    background-color: #303536;
+    border: 2px solid #434a4c;
+    color: #d4be98;
 }
 
 #tray {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
-    color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+    background-color: #d4be98;
+    border: 2px solid #c7ab7a;
 }
 
-#tray menu {
-    margin-top: 10px;
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 0px;
-    border-radius: 10px;
-    transition: none;
-    background: #32302f; 
+#pulseaudio {
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+    background-color: #303536;
+    border: 2px solid #434a4c;
     color: #d4be98;
-    border-bottom: 3px;
-    border-style: solid;
-    border-color: #E4CAAF;
-    transition: 0.3s;
+}
+
+#network {
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+    background-color: #303536;
+    border: 2px solid #434a4c;
+    color: #d4be98;
+}
+
+#battery {
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+    background-color: #a9b665;
+    border: 2px solid #c7ab7a;
+    color: #6c782e;
+}
+
+#custom-power {
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+    background-color: #303536;
+    border: 2px solid #434a4c;
+    color: #d4be98;
 }
