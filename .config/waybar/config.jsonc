@@ -33,7 +33,7 @@
     "clock": {
         "tooltip": true,
         "interval": 60,
-        "format": " {:%A - %b %d, %I:%M %p}"
+        "format": "{:%A - %b %d, %I:%M %p}"
     },
 
     "tray": {
