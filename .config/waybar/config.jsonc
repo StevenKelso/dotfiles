@@ -1,71 +1,65 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
-    "margin-top": 5,
-    "margin-left": 5,
-    "margin-right": 5,
+    "spacing": 0,
+    "height": 0,
 
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "network", "battery", "custom/power"],
+    "margin-top": 6,
+    "margin-right": 6,
+    "margin-bottom": 0,
+    "margin-left": 6,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/power"
+    ],
 
     "hyprland/workspaces": {
-        "tooltip": true,
-        "disable-scroll": true,
-        "all-outputs": true,
-        "show-special": true,
-        "on-click": "activate",
         "format": "{icon}",
-        "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            //"6": "",
-            //"active": "",
-            "urgent": "",
-            "default": "󰐗",
-            "magic": "󰓏"
-        }
+        "disable-scroll": true
+    },
+
+    "hyprland/window": {
+        "separate-outputs": true
     },
 
     "clock": {
-        "tooltip": true,
-        "interval": 60,
-        "format": "{:%A - %b %d, %I:%M %p}"
+        "format": "{:%I:%M %p - %A, %b %d}",
+        "tooltip": false,
+        "interval": 60
     },
 
     "tray": {
-        "icon-size": 21,
-        "spacing": 10
+        "spacing": 10,
+        "tooltip": false
     },
 
     "pulseaudio": {
-        "tooltip": true,
         "scroll-step": 5,
-        "format": "{volume}% {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}% Mic",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+        "format": "vol {volume}%",
+        "format-bluetooth": "vol {volume}%",
+        "nospacing": 1,
+        "on-click": "pavucontrol",
+        "tooltip": false
     },
 
     "network": {
-        "tooltip": true,
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-wifi": "wifi {signalStrength}%",
+        "format-ethernet": "eth {ipaddr}/{cidr}",
+        "format-disconnected": "Disconnected",
+        "tooltip": false
     },
 
     "battery": {
@@ -82,9 +76,7 @@
     },
 
     "custom/power": {
-        "tooltip": true,
-        "format": "⏻"
-        //"on-click": "bash ~/.config/wofi/powermenu.sh",
-        //"on-click-right": "killall wofi"
+        "format": "⏻",
+        "tooltip": false
     }
 }

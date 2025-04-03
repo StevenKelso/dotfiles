@@ -18,10 +18,28 @@ tooltip {
     border: 2px solid #7c6f64;
 }
 
+#window {
+    background-color: #282828;
+    border: 2px solid #3c3836;
+    color: #d65d0e;
+    margin: 6px 6px 6px 6px;
+    padding: 2px 8px;
+}
+
+#clock,
+#tray,
+#pulseaudio,
+#battery,
+#network,
+#custom-power {
+    margin: 6px 6px 6px 0px;
+    padding: 2px 8px;
+}
+
 #workspaces {
-    background-color: #303536;
+    background-color: #282828;
     margin: 6px 0px 6px 6px;
-    border: 2px solid #434a4c;
+    border: 2px solid #3c3836;
 }
 
 #workspaces button {
@@ -32,8 +50,9 @@ tooltip {
     color: #c7ab7a;
 }
 
-#workspaces button.focused {
-    color: #ddc7a1;
+#workspaces button.active {
+    color: #d65d0e;
+    background-color: #3c3836;
 }
 
 #workspaces button.urgent {
@@ -41,48 +60,38 @@ tooltip {
 }
 
 #clock {
-    margin: 6px 6px 6px 0px;
-    padding: 2px 8px;
-    background-color: #303536;
-    border: 2px solid #434a4c;
-    color: #d4be98;
+    background-color: #282828;
+    border: 2px solid #3c3836;
+    color: #d65d0e;
 }
 
 #tray {
-    margin: 6px 6px 6px 0px;
-    padding: 2px 8px;
-    background-color: #d4be98;
-    border: 2px solid #c7ab7a;
+    background-color: #282828;
+    border: 2px solid #3c3836;
+    color: #d65d0e
 }
 
 #pulseaudio {
-    margin: 6px 6px 6px 0px;
-    padding: 2px 8px;
-    background-color: #303536;
-    border: 2px solid #434a4c;
-    color: #d4be98;
+    background-color: #282828;
+    border: 2px solid #3c3836;
+    color: #d65d0e;
 }
 
 #network {
-    margin: 6px 6px 6px 0px;
-    padding: 2px 8px;
-    background-color: #303536;
-    border: 2px solid #434a4c;
-    color: #d4be98;
+    background-color: #282828;
+    border: 2px solid #3c3836;
+    color: #d65d0e;
 }
 
 #battery {
-    margin: 6px 6px 6px 0px;
-    padding: 2px 8px;
-    background-color: #303536;
-    border: 2px solid #434a4c;
-    color: #d4be98;
+    background-color: #282828;
+    border: 2px solid #3c3836;
+    color: #d65d0e;
+
 }
 
 #custom-power {
-    margin: 6px 6px 6px 0px;
-    padding: 2px 8px;
-    background-color: #303536;
-    border: 2px solid #434a4c;
-    color: #d4be98;
+    background-color: #282828;
+    border: 2px solid #3c3836;
+    color: #d65d0e;
 }
