@@ -32,7 +32,8 @@
     },
 
     "hyprland/window": {
-        "separate-outputs": true
+        "separate-outputs": true,
+        "format": "{initialTitle}"
     },
 
     "clock": {
