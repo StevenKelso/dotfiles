@@ -40,8 +40,8 @@ alias lsta4="eza -aTL4"
 # fzf
 eval "$(fzf --bash)"
 export FZF_DEFAULT_OPTS='--height 50% --border'
-alias fzf='fzf --preview="bat --color=always {}"'
-alias fzn='nvim $(fzf --preview="bat --color=always {}")'
+alias fzf='fzf --preview="cat {}"'
+alias fzn='nvim $(fzf -m --preview="cat {}")'
 
 # convenience
 alias ..="cd .."
