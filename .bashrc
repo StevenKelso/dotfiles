@@ -15,8 +15,8 @@ HISTCONTROL=ignoredups
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# golang
-export PATH=$PATH:$HOME/go/bin
+# no highlight on paste
+bind 'set enable-bracketed-paste off'
 
 # neovim
 export EDITOR='nvim'
