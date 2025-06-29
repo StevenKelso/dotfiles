@@ -2,12 +2,7 @@
     "layer": "bottom",
     "position": "top",
     "spacing": 0,
-    "height": 0,
-
-    "margin-top": 0,
-    "margin-right": 0,
-    "margin-bottom": 0,
-    "margin-left": 0,
+    "height": 30,
 
     "modules-left": [
         "hyprland/workspaces"
@@ -20,23 +15,22 @@
     "modules-right": [
         "tray",
         "pulseaudio",
+        "pulseaudio#input",
         "network",
-        "battery",
-        "custom/power"
+        "battery"
     ],
 
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "disable-scroll": true
-    },
+        "format": "{name}",
+        "disable-scroll": true,
+        "persistent-workspaces": {
+             "*": 5 // 5 workspaces by default on every monitor
+       }
 
-    "hyprland/window": {
-        "separate-outputs": true,
-        "format": "{initialTitle}"
     },
 
     "clock": {
-        "format": "{:%I:%M %p - %A, %b %d}",
+        "format": "{:%a, %B %d - %I:%M %p}",
         "tooltip": false,
         "interval": 60
     },
@@ -47,36 +41,46 @@
     },
 
     "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "MUTE",
+        "format-icons": {
+            "headphones": "",
+            "default": ["", "" ]
+        },
         "scroll-step": 5,
-        "format": "vol {volume}%",
-        "format-bluetooth": "vol {volume}%",
-        "nospacing": 1,
-        "on-click": "pavucontrol",
-        "tooltip": false
+        "on-click": "pavucontrol"
     },
 
+    "pulseaudio#input": {
+        "format-source": " {volume}%",
+        "format-source-muted": " off",
+        "format": "{format_source}",
+        "scroll-step": 5,
+        "smooth-scrolling-threshold": 1,
+        "max-volume": 100,
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-middle": "pavucontrol"
+    },        
+
     "network": {
-        "format-wifi": "wifi {signalStrength}%",
-        "format-ethernet": "eth {ipaddr}/{cidr}",
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "format-disconnected": "Disconnected",
-        "tooltip": false
+        "tooltip": false,
+        "interval": 2
     },
 
     "battery": {
         "tooltip": true,
         "bat": "BAT1",
-        "interval": 60,
+        "interval": 30,
         "states": {
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
         "format": "{icon}  {capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "max-length": 25
-    },
-
-    "custom/power": {
-        "format": "⏻",
-        "tooltip": false
+        "format-icons": ["", "", "", "", ""]
     }
 }

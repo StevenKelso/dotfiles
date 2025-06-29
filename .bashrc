@@ -39,14 +39,21 @@ alias lsta3="eza -aTL3"
 
 # fzf
 eval "$(fzf --bash)"
-export FZF_DEFAULT_OPTS='--height 50% --border'
-alias fzf='fzf --preview="cat {}"'
-alias fzn='nvim $(fzf -m --preview="cat {}")'
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_OPTS="
+--height 50%
+--border
+--list-border
+--input-border
+--preview 'bat --color=always {}'"
+alias fzn='nvim $(fzf -m)'
 
 # convenience
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias bashrc="nvim ~/.bashrc"
+alias bashrc="nvim $HOME/.bashrc"
+alias ewaybar="hyprctl dispatch exec waybar"
 alias rwaybar="killall waybar && hyprctl dispatch exec waybar"
+alias ehyprpaper="hyprctl dispatch exec hyprpaper"
 alias rhyprpaper="killall hyprpaper && hyprctl dispatch exec hyprpaper"
