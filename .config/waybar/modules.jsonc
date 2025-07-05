@@ -1,0 +1,92 @@
+{
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": 5 // 5 workspaces by default on every monitor
+        }
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%I:%M %p}  ",
+        "format-alt": "{:%A, %B %d, %Y - %I:%M %p}  ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10,
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "  MUTED",
+        "format-icons": {
+            "headphones": "",
+            "default": ["", "" ]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol"
+    },
+
+    "pulseaudio#input": {
+        "format-source": " {volume}%",
+        "format-source-muted": " off",
+        "format": "{format_source}",
+        "scroll-step": 5,
+        "smooth-scrolling-threshold": 1,
+        "max-volume": 100,
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-middle": "pavucontrol"
+    },        
+
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet":"",
+        "format-disconnected": "",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} 🖧 ",
+        "tooltip-format-disconnected": "Error",
+        "on-click": "kitty nmtui",
+        "tooltip": false,
+        "interval": 1
+    },
+
+    "battery": {
+        "bat": "BAT1",
+        "interval": 1,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["󰁻","󰁼","󰁾","󰂀","󰂂","󰁹"]
+    },
+
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    "custom/launcher": {
+        "format": " ",
+        "on-click": "rofi -show drun",
+        "tooltip": "false"
+    },
+
+    "custom/shutdown": {
+        "format": " ",
+        "on-click": "bash $(systemctl poweroff)",
+        "tooltip": "false"
+    }
+}

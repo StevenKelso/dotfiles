@@ -1,10 +1,17 @@
 {
+    "include": [
+        "$HOME/dotfiles/.config/waybar/modules.jsonc"
+    ],
+
     "layer": "bottom",
+
     "position": "top",
-    "spacing": 0,
-    "height": 30,
+
+    "margin-bottom": 8,
 
     "modules-left": [
+        "custom/launcher",
+        "custom/separator",
         "hyprland/workspaces"
     ],
 
@@ -14,73 +21,13 @@
 
     "modules-right": [
         "tray",
+        "custom/separator",
         "pulseaudio",
         "pulseaudio#input",
+        "custom/separator",
         "network",
-        "battery"
-    ],
-
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "disable-scroll": true,
-        "persistent-workspaces": {
-             "*": 5 // 5 workspaces by default on every monitor
-       }
-
-    },
-
-    "clock": {
-        "format": "{:%a, %B %d - %I:%M %p}",
-        "tooltip": false,
-        "interval": 60
-    },
-
-    "tray": {
-        "spacing": 10,
-        "tooltip": false
-    },
-
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-muted": "MUTE",
-        "format-icons": {
-            "headphones": "",
-            "default": ["", "" ]
-        },
-        "scroll-step": 5,
-        "on-click": "pavucontrol"
-    },
-
-    "pulseaudio#input": {
-        "format-source": " {volume}%",
-        "format-source-muted": " off",
-        "format": "{format_source}",
-        "scroll-step": 5,
-        "smooth-scrolling-threshold": 1,
-        "max-volume": 100,
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-        "on-click-middle": "pavucontrol"
-    },        
-
-    "network": {
-        "format-wifi": "󰖩 {signalStrength}%",
-        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
-        "format-disconnected": "Disconnected",
-        "tooltip": false,
-        "interval": 2
-    },
-
-    "battery": {
-        "tooltip": true,
-        "bat": "BAT1",
-        "interval": 30,
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-icons": ["", "", "", "", ""]
-    }
+        "battery",
+        "custom/separator",
+        "custom/shutdown"
+    ]
 }

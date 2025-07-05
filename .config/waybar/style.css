@@ -1,18 +1,21 @@
 * {
     font-family: FiraMono Nerd Font;
-    font-size: 14px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 window#waybar {
     background: #242323;
-    border: 0px
+    border-bottom: 2px solid #a89984;
 }
 
 tooltip {
     border: 2px solid #a89984;
 }
 
+#custom-launcher,
+#custom-separator,
+#custom-shutdown,
 #workspaces,
 #clock,
 #tray,
@@ -28,7 +31,7 @@ tooltip {
 }
 
 #workspaces button {
-    padding: 0px 4px 0px 0px;
+    padding: 0px 4px 0px 4px;
     color: #a89984;
 }
 
