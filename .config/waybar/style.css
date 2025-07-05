@@ -17,41 +17,13 @@ tooltip {
 #custom-separator,
 #custom-shutdown,
 #workspaces,
+#workspaces button,
 #clock,
 #tray,
 #pulseaudio,
 #network,
 #battery {
     margin: 0px 0px 0px 0px;
-    padding: 0px 10px 0px 0px;
+    padding: 0px 5px 0px 5px;
     color: #a89984;
-}
-
-#workspaces {
-}
-
-#workspaces button {
-    padding: 0px 4px 0px 4px;
-    color: #a89984;
-}
-
-#workspaces button.active {
-}
-
-#workspaces button.urgent {
-}
-
-#clock {
-}
-
-#tray {
-}
-
-#pulseaudio {
-}
-
-#battery {
-}
-
-#network {
 }

@@ -4,8 +4,8 @@
         "format": "{icon}",
         "format-icons": {
             "active": "",
-            "default": "",
-            "empty": ""
+            "default": "",
+            "empty": ""
         },
         "persistent-workspaces": {
             "*": 5 // 5 workspaces by default on every monitor
