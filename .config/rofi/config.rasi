@@ -22,7 +22,7 @@ configuration {
 window {
     location: center;
     padding: 10px;
-    border: 1;
+    border: 2;
     border-color: @white;
     width: 450px;
 }
