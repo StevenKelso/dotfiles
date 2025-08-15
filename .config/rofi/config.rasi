@@ -24,11 +24,13 @@ window {
     padding: 10px;
     border: 2;
     border-color: @white;
-    width: 450px;
+    height: 600;
+    width: 600;
 }
 
 mainbox {
     enabled: true;
+    spacing: 0;
 }
 
 message {

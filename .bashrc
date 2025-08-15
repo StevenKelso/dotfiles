@@ -48,6 +48,9 @@ export FZF_DEFAULT_OPTS="
 --preview 'bat --color=always {}'"
 alias fzn='nvim $(fzf -m)'
 
+# icat
+alias icat="kitty +kitten icat"
+
 # convenience
 alias ..="cd .."
 alias ...="cd ../.."

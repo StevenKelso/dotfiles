@@ -70,6 +70,7 @@ $line_break\
 $status\
 $character\
 """
+
 [fill]
 symbol = " "
 
