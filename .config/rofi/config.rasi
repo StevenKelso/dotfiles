@@ -1,13 +1,14 @@
+/* import color scheme */
 @import "/colors.rasi"
 
+/* configuration */
 configuration {
-    font: "FiraMono Nerd Font 14";
     modi: "drun,window";
-    drun-display-format: "{name}";
-    window-format: "{w} * {t}";
     show-icons: true;
+    drun-display-format: "{name}";
     case-sensitive: false;
     cycle: false;
+    window-format: "{w} {c}";
     kb-row-up: "Control+k";
     kb-row-down: "Control+j";
     kb-accept-entry: "Return";
@@ -15,69 +16,120 @@ configuration {
     kb-cancel: "Control+bracketleft,Escape";
 }
 
+/* global properties */
 * {
-    background-color: @black;
+    font: "FiraMono Nerd Font 14";
 }
 
+/* main window */
 window {
+    transparency: "real";
     location: center;
-    padding: 10px;
-    border: 2;
-    border-color: @white;
-    height: 600;
-    width: 600;
+    anchor: center;
+    fullscreen: false;
+    width: 420;
+    x-offset: 0px;
+    y-offset: 0px;
+    enabled: true;
+    border: 2px;
+    border-color: @border;
+    cursor: "default";
+    background-color: @background;
 }
 
+/* main box */
 mainbox {
     enabled: true;
-    spacing: 0;
+    spacing: 0px;
+    background-color: transparent;
+    orientation: vertical;
+    children: ["inputbar", "listbox"];
 }
-
-message {
-    
-}
-
-textbox {
-}
-
-listview {
-    lines: 4;
+listbox {
     spacing: 10px;
+    padding: 10px;
+    background-color: transparent;
+    orientation: vertical;
+    children: ["listview"];
 }
 
-element {
-    
-}
-
-element-text {
-    
-}
-
-scrollbar {
-    
-}
-
-mode-switcher {
-    
-}
-
-button {
-    
-}
-
+/* inputbar */
 inputbar {
+    enabled: true;
     spacing: 10px;
-    padding: 10px 0px;
+    padding: 15px;
+    background-color: @background-alt;
+    text-color: @foreground;
+    orientation: horizontal;
+    border: 0 0 2px 0;
+    border-color: @border;
+    children: ["textbox-prompt-colon", "entry"];
 }
-
+textbox-prompt-colon {
+    enabled: true;
+    expand: false;
+    str: " ";
+    padding: 12px 15px;
+    background-color: @active;
+    text-color: @background;
+}
 entry {
-    
+    enabled: true;
+    expand: true;
+    padding: 12px 16px;
+    background-color: @background;
+    text-color: @foreground;
+    cursor: text;
+    placeholder: "Search...";
+    placeholder-color: @foreground;
 }
 
-prompt {
-    
+/* listview */
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 6;
+    cycle: false;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 5px;
+    background-color: transparent;
+    text-color: @foreground;
+    cursor: "default";
 }
 
+/* elements */
+element {
+    enabled: true;
+    spacing: 10px;
+    padding: 8px;
+    background-color: transparent;
+    text-color: @foreground;
+    cursor: pointer;
+}
+element normal.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+element selected.normal {
+    background-color: @selected;
+    text-color: @background;
+}
 element-icon {
-    size: 30px;
+    background-color: transparent;
+    text-color: inherit;
+    size: 32px;
+    cursor: inherit;
+}
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    padding: 0px 0px 0px 5px;
 }

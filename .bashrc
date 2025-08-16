@@ -56,6 +56,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias bashrc="nvim $HOME/.bashrc"
+
+# hyprland
 alias ewaybar="hyprctl dispatch exec waybar"
 alias rwaybar="killall waybar && hyprctl dispatch exec waybar"
 alias ehyprpaper="hyprctl dispatch exec hyprpaper"

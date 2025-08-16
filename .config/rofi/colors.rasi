@@ -1,10 +1,9 @@
 * {
-    black: #3c3836;
-    red:	#ea6962;
-    green: #a9b665;
-    organge: #d8a657;
-    blue: #7daea3;
-    magenta: #d3869b;
-    teal: #89b482;
-    white: #d4be98;
+    background:     #282828;
+    background-alt: #3c3836;
+    foreground:     #ebdbb2;
+    border:         #a89984;
+    selected:       #83a598;
+    active:         #b8bb26;
+    urgent:         #fb4934;
 }
