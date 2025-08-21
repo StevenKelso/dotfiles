@@ -23,24 +23,20 @@ configuration {
 
 /* main window */
 window {
-    transparency: "real";
+    enabled: true;
     location: center;
     anchor: center;
     fullscreen: false;
-    width: 420;
-    x-offset: 0px;
-    y-offset: 0px;
-    enabled: true;
+    cursor: "default";
+    width: 500;
     border: 2px;
     border-color: @border;
-    cursor: "default";
     background-color: @background;
 }
 
 /* main box */
 mainbox {
     enabled: true;
-    spacing: 0px;
     background-color: transparent;
     orientation: vertical;
     children: ["inputbar", "listbox"];
@@ -57,8 +53,8 @@ listbox {
 inputbar {
     enabled: true;
     spacing: 10px;
-    padding: 15px;
-    background-color: @background-alt;
+    padding: 10px;
+    background-color: @background;
     text-color: @foreground;
     orientation: horizontal;
     border: 0 0 2px 0;
@@ -69,14 +65,16 @@ textbox-prompt-colon {
     enabled: true;
     expand: false;
     str: " ";
-    padding: 12px 15px;
-    background-color: @active;
-    text-color: @background;
+    spacing: 10px;
+    padding: 10px;
+    background-color: transparent;
+    text-color: @foreground;
 }
 entry {
     enabled: true;
     expand: true;
-    padding: 12px 16px;
+    spacing: 10px;
+    padding: 10px;
     background-color: @background;
     text-color: @foreground;
     cursor: text;
@@ -88,7 +86,7 @@ entry {
 listview {
     enabled: true;
     columns: 1;
-    lines: 6;
+    lines: 4;
     cycle: false;
     dynamic: true;
     scrollbar: false;
@@ -96,7 +94,6 @@ listview {
     reverse: false;
     fixed-height: true;
     fixed-columns: true;
-    spacing: 5px;
     background-color: transparent;
     text-color: @foreground;
     cursor: "default";
@@ -106,7 +103,7 @@ listview {
 element {
     enabled: true;
     spacing: 10px;
-    padding: 8px;
+    padding: 10px;
     background-color: transparent;
     text-color: @foreground;
     cursor: pointer;
