@@ -19,6 +19,7 @@ configuration {
 /* global properties */
 * {
     font: "FiraMono Nerd Font 14";
+    border-radius: 5px;
 }
 
 /* main window */
@@ -60,6 +61,7 @@ inputbar {
     border: 0 0 2px 0;
     border-color: @border;
     children: ["textbox-prompt-colon", "entry"];
+    border-radius: 0px;
 }
 textbox-prompt-colon {
     enabled: true;

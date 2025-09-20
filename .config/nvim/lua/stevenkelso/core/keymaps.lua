@@ -3,15 +3,20 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
--- use Ctrl-c to exit insert mode
-keymap.set("i", "<C-c>", "<ESC>", { desc = "Exit insert mode with Ctrl-c" })
+-- move lines in visual mode
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual selection" })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual selection" })
+
+-- center screen while searching
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
 
 -- clear search highlights
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search hl", silent = true })
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
- 
+
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement

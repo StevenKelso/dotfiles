@@ -52,9 +52,6 @@ alias fzn='nvim $(fzf -m)'
 alias icat="kitty +kitten icat"
 
 # convenience
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
 alias bashrc="nvim $HOME/.bashrc"
 alias tldr="tldr --short-options"
 

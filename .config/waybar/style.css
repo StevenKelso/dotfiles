@@ -1,7 +1,7 @@
 * {
     font-family: FiraMono Nerd Font;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 window#waybar {
@@ -9,6 +9,8 @@ window#waybar {
     border-bottom: 2px solid #a89984;
     border-left: 2px solid #a89984;
     border-right: 2px solid #a89984;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 tooltip {
