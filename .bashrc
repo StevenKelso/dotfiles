@@ -39,13 +39,17 @@ alias lsta3="eza -aTL4"
 
 # fzf
 eval "$(fzf --bash)"
-export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_COMMAND="fd --type f \
+--hidden \
+--exclude '{.git,.local,.cache,.mozilla}'"
 export FZF_DEFAULT_OPTS="
 --height 50%
 --border
 --list-border
 --input-border
 --preview 'bat --color=always {}'"
+
+# fzf into nvim
 alias fzn='nvim $(fzf -m)'
 
 # icat
