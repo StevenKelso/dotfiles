@@ -11,10 +11,14 @@
 - Hyprpaper
 - Hyprlock
 - Waybar
-- Wofi
+- Rofi
 - Kitty
 - Tmux
 - Neovim
+- Ripgrep
+- Fzf
+- Eza
+- Nerdfonts
 
 ## Installation
 - Navigate to your home directory
