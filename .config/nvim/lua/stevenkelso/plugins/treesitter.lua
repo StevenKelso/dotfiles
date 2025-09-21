@@ -26,6 +26,7 @@ return {
                 "css",
                 "dockerfile",
                 "gitignore",
+                "go",
                 "helm",
                 "html",
                 "javascript",
@@ -52,6 +53,7 @@ return {
                     node_decremental = "<bs>",
                 },
             },
+            additional_vim_regex_highlighting = false,
         })
     end,
 }

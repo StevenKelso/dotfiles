@@ -40,7 +40,7 @@ return {
 
         telescope.load_extension("fzf")
 
-        -- set keymaps
+        -- keymaps
         local keymap = vim.keymap -- for conciseness
 
         keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
