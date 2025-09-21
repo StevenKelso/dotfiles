@@ -1,34 +1,13 @@
 return {
-    -- NOTE: gruvbox
-    "ellisonleao/gruvbox.nvim",
+    'sainnhe/gruvbox-material',
+    lazy = false,
     priority = 1000,
     config = function()
-        require("gruvbox").setup({
-            terminal_colors = true, -- add neovim terminal colors
-            undercurl = true,
-            underline = true,
-            bold = true,
-            italic = {
-                strings = true,
-                emphasis = true,
-                comments = true,
-                operators = false,
-                folds = true,
-            },
-            strikethrough = true,
-            invert_selection = false,
-            invert_signs = false,
-            invert_tabline = false,
-            invert_intend_guides = false,
-            inverse = true, -- invert background for search, diffs, statuslines and errors
-            contrast = "soft", -- can be "hard", "soft" or empty string
-            palette_overrides = {},
-            overrides = {},
-            dim_inactive = false,
-            transparent_mode = true,
-        })
-
-        -- set the permanent colorscheme
-        vim.cmd("colorscheme gruvbox")
-    end,
+        vim.o.background = "dark"  -- "dark" | "light"
+        vim.g.gruvbox_material_palette = "material"  -- "material" | "mix" | "original"
+        vim.g.gruvbox_material_background = "soft"  -- "soft" | "medium" | "hard"
+        vim.g.gruvbox_material_enable_italic = true
+        vim.g.gruvbox_material_transparent_background = 1 -- use terminal background
+        vim.cmd.colorscheme('gruvbox-material')
+    end
 }
