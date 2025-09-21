@@ -19,12 +19,12 @@ return {
 
         -- Set menu
         dashboard.section.buttons.val = {
-            dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-            dashboard.button("-", "  > Toggle file explorer"),
-            dashboard.button("SPC ff", "󰱼 > Find File", "<cmd>Telescope find_files<CR>"),
-            dashboard.button("SPC fs", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
-            dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
-            dashboard.button("q", " > Quit NVIM", "<cmd>qa<CR>"),
+            dashboard.button("e", "  > new file", "<cmd>ene<CR>"),
+            dashboard.button("-", "  > file explorer"),
+            dashboard.button("SPC ff", "󰱼  > find file", "<cmd>Telescope find_files<CR>"),
+            dashboard.button("SPC fs", "  > find ford", "<cmd>Telescope live_grep<CR>"),
+            dashboard.button("SPC wr", "󰁯  > restore session for cwd", "<cmd>SessionRestore<CR>"),
+            dashboard.button("q", "  > quit", "<cmd>qa<CR>"),
         }
 
         -- Send config to alpha

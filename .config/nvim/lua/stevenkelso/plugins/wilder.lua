@@ -26,7 +26,7 @@ return {
                     default = wilder.make_hl(
                         "WilderPopupMenu",
                         "Pmenu",
-                        { { a = 1 }, { a = 1 }, { background = "#1E212B" } } -- Adjust background color
+                        { { a = 1 }, { a = 1 }, { background = "#32302F" } } -- Adjust background color
                     ),
                     accent = wilder.make_hl(
                         "WilderAccent",
