@@ -1,2 +1,2 @@
-require("stevenkelso.core")
-require("stevenkelso.lazy")
+require("core")
+require("lazy_setup")

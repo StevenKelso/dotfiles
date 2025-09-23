@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
     {
-        { import = "stevenkelso.plugins" },
+        { import = "plugins" },
     },
     {
         checker = {
