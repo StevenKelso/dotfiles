@@ -37,6 +37,8 @@ return {
                 "markdown_inline",
                 "python",
                 "query",
+                "regex",
+                "solidity",
                 "sql",
                 "terraform",
                 "typescript",
