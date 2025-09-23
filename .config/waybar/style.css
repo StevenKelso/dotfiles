@@ -31,3 +31,27 @@ tooltip {
     padding: 0px 5px 0px 5px;
     color: #a89984;
 }
+
+#workspaces {
+    margin-left: -10px;
+}
+
+#custom-separator {
+    margin-left: 5px;
+}
+
+#custom-launcher {
+    margin-left: 10px;
+}
+
+#custom-shutdown {
+    margin-right: 5px;
+}
+
+#workspaces button:hover {
+    /* this is necessary to disable the box shadow effect */
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0);
+}

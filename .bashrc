@@ -36,6 +36,10 @@ alias lsta="eza -alhTL1 --icons --git"
 alias lsta1="eza -alhTL2 --icons --git"
 alias lsta2="eza -alhTL3 --icons --git"
 alias lsta3="eza -alhTL4 --icons --git"
+alias lstag="eza -alhTL1 --icons --git --git-ignore"
+alias lstag1="eza -alhTL2 --icons --git --git-ignore"
+alias lstag2="eza -alhTL3 --icons --git --git-ignore"
+alias lstag3="eza -alhTL4 --icons --git --git-ignore"
 
 # fzf
 eval "$(fzf --bash)"

@@ -77,7 +77,7 @@
         "tooltip-format-ethernet": "{ifname} 🖧 ",
         "tooltip-format-disconnected": "Error",
         "on-click": "kitty nmtui",
-        "tooltip": false,
+        "tooltip": true,
         "interval": 1
     },
 
@@ -102,12 +102,12 @@
     "custom/launcher": {
         "format": "",
         "on-click": "rofi -show drun -theme $HOME/.config/rofi/config.rasi",
-        "tooltip": "false"
+        "tooltip": false
     },
 
     "custom/shutdown": {
         "format": " ",
         "on-click": "bash $(systemctl poweroff)",
-        "tooltip": "false"
+        "tooltip": false
     }
 }
