@@ -24,10 +24,41 @@ return {
                         "--glob", "!**/.cache/*",
                         "--glob", "!**/.mozilla/*",
                     },
-                }
+                },
+                live_grep = {
+                    additional_args = function(_)
+                        return {
+                            "--hidden",
+                            "--glob", "!**/.git/*",
+                            "--glob", "!**/.local/*",
+                            "--glob", "!**/.cache/*",
+                            "--glob", "!**/.mozilla/*",
+                        }
+                    end,
+                },
+                grep_string = {
+                    additional_args = function(_)
+                        return {
+                            "--hidden",
+                            "--glob", "!**/.git/*",
+                            "--glob", "!**/.local/*",
+                            "--glob", "!**/.cache/*",
+                            "--glob", "!**/.mozilla/*",
+                        }
+                    end,
+                },
+                oldfiles = {
+                    cwd_only = false,
+                    file_ignore_patterns = {
+                        "%.git/",
+                        "%.local/",
+                        "%.cache/",
+                        "%.mozilla/",
+                    },
+                },
             },
             defaults = {
-                path_display = { "smart" },
+                path_display = { "truncate" }, -- smart | truncate | full | shorten
                 mappings = {
                     i = {
                         ["<C-k>"] = actions.move_selection_previous, -- move to prev result
