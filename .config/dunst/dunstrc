@@ -12,7 +12,7 @@
     progress_bar_frame_width = 1
     progress_bar_min_width = 150
     progress_bar_max_width = 300
-    progress_bar_corner_radius = 0
+    progress_bar_corner_radius = 5
     progress_bar_corners = all
     icon_corner_radius = 0
     icon_corners = all
@@ -49,7 +49,7 @@
     show_age_threshold = 60
     ellipsize = middle
     ignore_newline = no
-    stack_duplicates = false
+    stack_duplicates = true
     hide_duplicate_count = false
     show_indicators = yes
     enable_recursive_icon_lookup = true
@@ -81,20 +81,23 @@
 [urgency_low]
     background = "#689D6A"
     foreground = "#282828"
-    timeout = 5
+    highlight = "#98971a"
+    timeout = 2
     default_icon = dialog-information
 
 [urgency_normal]
     background = "#458588"
     foreground = "#282828"
+    highlight = "#d79921"
     timeout = 5
     override_pause_level = 30
     default_icon = dialog-information
 
 [urgency_critical]
     background = "#CC241D"
-    foreground = "#282828"
-    frame_color = "#ff0000"
+    foreground = "#FBF1C7"
+    frame_color = "#FB4934"
+    highlight = "#fb4934"
     timeout = 0
     override_pause_level = 60
     default_icon = dialog-warning
