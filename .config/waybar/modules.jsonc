@@ -41,7 +41,7 @@
     },
 
     "tray": {
-        "icon-size": 14,
+        "icon-size": 18,
         "spacing": 10,
         "tooltip": false
     },
@@ -89,7 +89,7 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{icon}  {capacity}%",
+        "format": "{icon} {capacity}%",
         "format-icons": ["󰁻","󰁼","󰁾","󰂀","󰂂","󰁹"]
     },
 
