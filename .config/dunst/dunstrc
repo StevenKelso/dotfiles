@@ -82,7 +82,7 @@
     background = "#689D6A"
     foreground = "#282828"
     highlight = "#98971a"
-    timeout = 2
+    timeout = 1
     default_icon = dialog-information
 
 [urgency_normal]
