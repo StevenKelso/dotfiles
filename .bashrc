@@ -63,6 +63,7 @@ alias icat="kitty +kitten icat"
 # convenience
 alias bashrc="nvim $HOME/.bashrc"
 alias tldr="tldr --short-options"
+alias work="cd $HOME/workspace/github.com/stevenkelso/"
 
 # hyprland
 alias ewaybar="hyprctl dispatch exec waybar"
