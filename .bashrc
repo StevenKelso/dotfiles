@@ -21,6 +21,7 @@ bind 'set enable-bracketed-paste off'
 # neovim
 export EDITOR='nvim'
 export VISUAL='nvim'
+export MANPAGER='nvim +Man!'
 
 # starship
 eval "$(starship init bash)"
