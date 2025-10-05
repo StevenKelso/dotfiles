@@ -64,9 +64,8 @@
         "format": "{format_source}",
         "scroll-step": 5,
         "smooth-scrolling-threshold": 1,
-        "max-volume": 100,
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-        "on-click-middle": "pavucontrol"
+        "max-volume": 150,
+        "on-click": "pavucontrol"
     },        
 
     "network": {
