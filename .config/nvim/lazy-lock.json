@@ -1,10 +1,8 @@
 {
-  "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
-  "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "fzy-lua-native": { "branch": "master", "commit": "9d720745d5c2fb563c0d86c17d77612a3519c506" },
   "gruvbox-material": { "branch": "master", "commit": "834dbf21836862300ced7444db4262b796330ab7" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
-  "lazy.nvim": { "branch": "main", "commit": "f0f5bbb9e5bfae5e6468f9359ffea3d151418176" },
+  "lazy.nvim": { "branch": "main", "commit": "202d8e92b3a74ac88eb3a7f1e40fb59b4c2a6535" },
   "lualine.nvim": { "branch": "master", "commit": "3946f0122255bc377d14a59b27b609fb3ab25768" },
   "nvim-autopairs": { "branch": "master", "commit": "7a2c97cccd60abc559344042fefb1d5a85b3e33b" },
   "nvim-cmp": { "branch": "main", "commit": "cf22c9e32512de3be1fd6b65fd25e3aabead4d8b" },
