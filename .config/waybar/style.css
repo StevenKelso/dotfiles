@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-    background: #242323;
+    background: #32302F;
     border-bottom: 2px solid #a89984;
     border-left: 2px solid #a89984;
     border-right: 2px solid #a89984;
@@ -34,6 +34,10 @@ tooltip {
 
 #workspaces {
     margin-left: -10px;
+}
+
+#battery {
+    margin-left: 12px;
 }
 
 #custom-separator {
