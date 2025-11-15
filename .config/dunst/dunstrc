@@ -79,14 +79,14 @@
 
 
 [urgency_low]
-    background = "#689D6A"
+    background = "#7DAEA3"
     foreground = "#282828"
     highlight = "#98971a"
     timeout = 1
     default_icon = dialog-information
 
 [urgency_normal]
-    background = "#458588"
+    background = "#E78A4E"
     foreground = "#282828"
     highlight = "#d79921"
     timeout = 5
@@ -94,8 +94,8 @@
     default_icon = dialog-information
 
 [urgency_critical]
-    background = "#CC241D"
-    foreground = "#FBF1C7"
+    background = "#EA6962"
+    foreground = "#282828"
     frame_color = "#FB4934"
     highlight = "#fb4934"
     timeout = 0
