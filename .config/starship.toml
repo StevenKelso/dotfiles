@@ -1,5 +1,5 @@
 format = """
-[┌──────]\
+[┌─$username ]\
 (bold white)\
 [󰉕  ](bold bg:none fg:green)\
 (bold bg:none fg:green)\
@@ -51,6 +51,7 @@ $red\
 $ruby\
 $rust\
 $scala\
+$solidity\
 $swift\
 $terraform\
 $vlang\
