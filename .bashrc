@@ -54,8 +54,50 @@ export FZF_DEFAULT_OPTS="
 --input-border
 --preview 'bat --color=always {}'"
 
-# fzf into nvim
-alias fzn='nvim $(fzf -m)'
+# fuzzy nvim
+fvim() {
+    local files
+    files=$(fzf --preview 'bat --color=always {}') || return
+    [ -n "$files" ] && nvim "$files"
+}
+
+# fuzzy cd
+fcd() {
+    local dir
+    dir=$(fd --type d \
+        --hidden \
+        --exclude .git \
+        --exclude .cache \
+        --exclude .local \
+        --exclude .mozilla \
+        "" "$HOME" | fzf --preview 'eza -la --icons --git --color=always {}') || return
+    cd "$dir"
+}
+
+# fuzzy grep
+frg() {
+    fzf --ansi \
+        --phony \
+        --prompt 'rg> ' \
+        --delimiter ':' \
+        --preview 'bat --color=always --style=numbers --highlight-line {2} {1}' \
+        --bind 'change:reload:rg --hidden \
+            --line-number \
+            --no-heading \
+            --color=always \
+            --smart-case \
+            --glob "!**/.git/**" \
+            --glob "!**/.cache/**" \
+            --glob "!**/.local/**" \
+            --glob "!**/.mozilla/**" \
+            --glob "!**/.bash_history" \
+            {q} || true' \
+        --bind 'enter:execute(
+            file=$(cut -d: -f1 <<< {});
+            line=$(cut -d: -f2 <<< {});
+            ${EDITOR:-nvim} +"$line" "$file"
+        )'
+}
 
 # icat
 alias icat="kitty +kitten icat"
@@ -63,7 +105,6 @@ alias icat="kitty +kitten icat"
 # convenience
 alias bashrc="nvim $HOME/.bashrc"
 alias tldr="tldr --short-options"
-alias work="cd $HOME/workspace/github.com/stevenkelso/"
 
 # hyprland
 alias ewaybar="hyprctl dispatch exec waybar"
