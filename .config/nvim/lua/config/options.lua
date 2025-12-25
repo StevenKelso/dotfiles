@@ -19,11 +19,10 @@ opt.wrap = false -- disable line wrapping
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
--- turn on termguicolors for nightfly colorscheme to work
+-- turn on termguicolors
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
--- opt.colorcolumn = "80"
 opt.cursorline = true -- highlight the current cursor line
 
 -- backspace
