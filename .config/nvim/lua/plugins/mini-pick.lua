@@ -1,9 +1,8 @@
 return {
     {
         'nvim-mini/mini.pick',
-        config = function()
-            local pick = require 'mini.pick'
-            pick.setup {}
-        end
+        opts = {},
+        vim.keymap.set('n', '<Leader>ff', function() MiniPick.builtin.files({ tool = 'git'}) end, { desc = 'Find Files' }),
+        vim.keymap.set('n', '<Leader>fg', function() MiniPick.builtin.grep_live() end, { desc = 'Grep (search in files)' }),
     }
 }
