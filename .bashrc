@@ -23,6 +23,9 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 
+# fixing kitty ssh
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 # starship
 eval "$(starship init bash)"
 

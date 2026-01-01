@@ -1,11 +1,11 @@
 {
   "gruvbox-material": { "branch": "master", "commit": "cc47341018320a2c82262958a1af889e5eeacd6e" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
-  "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
-  "mini.icons": { "branch": "main", "commit": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428" },
+  "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
+  "mini.icons": { "branch": "main", "commit": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c" },
   "mini.pairs": { "branch": "main", "commit": "d5a29b6254dad07757832db505ea5aeab9aad43a" },
-  "mini.pick": { "branch": "main", "commit": "0c56dc3ef9b15e9659ce09331fdc82449349701b" },
+  "mini.pick": { "branch": "main", "commit": "8cb40ee55dd156957b1116eded6135e6aeaa078b" },
   "mini.statusline": { "branch": "main", "commit": "3e96596ebe51b899874d8174409cdc4f3c749d9a" },
-  "mini.surround": { "branch": "main", "commit": "88c52297ed3e69ecf9f8652837888ecc727a28ee" },
-  "oil.nvim": { "branch": "master", "commit": "bbfa7cba85967dc9dbfe0ca486fd4b17084bf846" }
+  "mini.surround": { "branch": "main", "commit": "cc7b9d0a056b5fa6915ffac1cb91f29bf7c96f69" },
+  "oil.nvim": { "branch": "master", "commit": "81b8a91735ad5cd24a6b3137f14a89f19176364f" }
 }
