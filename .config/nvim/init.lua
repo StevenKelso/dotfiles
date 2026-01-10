@@ -215,9 +215,3 @@ require("lazy").setup({
         },
     }
 })
-
-
-require('mini.statusline').setup()
-require('mini.pairs').setup()
-require('mini.surround').setup()
-require('mini.pick').setup()
