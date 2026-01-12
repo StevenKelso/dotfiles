@@ -22,6 +22,7 @@ bind 'set enable-bracketed-paste off'
 export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 
 # fixing kitty ssh
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"

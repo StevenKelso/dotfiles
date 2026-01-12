@@ -316,8 +316,8 @@ require("lazy").setup({
         {
             "nvim-mini/mini.pick",
             opts = {},
-            vim.keymap.set("n", "<leader>ff", function() MiniPick.builtin.files({ tool = "git" }) end, { desc = "Find Files" }),
-            vim.keymap.set("n", "<leader>fg", function() MiniPick.builtin.grep_live({ tool = "git" }) end, { desc = "Grep (search in files)" }),
+            vim.keymap.set("n", "<leader>ff", function() MiniPick.builtin.files({}) end, { desc = "Find Files" }),
+            vim.keymap.set("n", "<leader>fg", function() MiniPick.builtin.grep_live({}) end, { desc = "Grep (search in files)" }),
         },
     }
 })
