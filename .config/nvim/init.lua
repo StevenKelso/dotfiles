@@ -138,19 +138,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- Function to open file in new tab
-local function open_file_in_tab()
-    vim.ui.input(
-        { prompt = 'File to open in new tab: ', completion = 'file' },
-        function(input)
-            if input and input ~= '' then
-                vim.cmd('tabnew ' .. input)
-            end
-        end
-    )
-end
-vim.keymap.set('n', '<leader>tO', open_file_in_tab, { desc = 'Open file in new tab' })
-
 -- Function to duplicate current tab
 local function duplicate_tab()
     local current_file = vim.fn.expand('%:p')

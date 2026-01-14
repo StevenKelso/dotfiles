@@ -27,6 +27,9 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 # fixing kitty ssh
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
+# foundry
+export PATH="$PATH:/home/stevenkelso/.config/.foundry/bin"
+
 # starship
 eval "$(starship init bash)"
 
@@ -116,5 +119,3 @@ alias rwaybar="killall waybar && hyprctl dispatch exec waybar"
 alias ehyprpaper="hyprctl dispatch exec hyprpaper"
 alias rhyprpaper="killall hyprpaper && hyprctl dispatch exec hyprpaper"
 alias rdunst="pkill -HUP dunst"
-
-export PATH="$PATH:/home/stevenkelso/.config/.foundry/bin"
