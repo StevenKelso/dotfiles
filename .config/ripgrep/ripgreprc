@@ -2,3 +2,7 @@
 --no-ignore
 --glob
 !**/.git/*
+--glob
+!**/.mozilla/*
+--glob
+!**/.cache/*

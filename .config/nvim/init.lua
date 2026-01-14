@@ -1,8 +1,10 @@
--- Key mappings
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- ============================================================================
+-- OPTIONS
+-- ============================================================================
 
 -- Basic settings
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
@@ -40,6 +42,18 @@ vim.opt.backspace = "indent,eol,start"
 -- Split behavior
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+
+-- Tab display settings
+vim.opt.showtabline = 2
+vim.opt.tabline = ''
+
+
+-- ============================================================================
+-- KEY MAPPINGS
+-- ============================================================================
+
+-- Y to EOL
+vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
 
 -- Normal mode mappings
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { desc = "Clear search highlights" })
@@ -81,10 +95,37 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual 
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
+-- JSON formatting
+vim.keymap.set('n', '<leader>jq', ':%!jq .<CR>', { desc = 'format json expand' })
+-- vim.keymap.set('n', '<leader>jqm', ':%!jq -c .<CR>', { desc = 'format json minify' })
+
+-- Transparent tabline appearance
+vim.cmd([[
+hi TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
+]])
+
+-- Tab navigation
+vim.keymap.set('n', '<leader>to', ':tabnew<CR>', { desc = 'New tab' })
+vim.keymap.set('n', '<leader>tn', ':tabnext<CR>', { desc = 'Next tab' })
+vim.keymap.set('n', '<leader>tp', ':tabprevious<CR>', { desc = 'Previous tab' })
+vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
+
+-- Tab moving
+vim.keymap.set('n', '<leader>tm', ':tabmove<CR>', { desc = 'Move tab' })
+vim.keymap.set('n', '<leader>t>', ':tabmove +1<CR>', { desc = 'Move tab right' })
+vim.keymap.set('n', '<leader>t<', ':tabmove -1<CR>', { desc = 'Move tab left' })
+
 
 -- ============================================================================
 -- USEFUL FUNCTIONS
 -- ============================================================================
+
+-- Copy Full File-Path
+vim.keymap.set("n", "<leader>pa", function()
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    print("file:", path)
+end)
 
 -- Basic autocommands
 local augroup = vim.api.nvim_create_augroup("UserConfig", {})
@@ -97,136 +138,29 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- Function to open file in new tab
+local function open_file_in_tab()
+    vim.ui.input(
+        { prompt = 'File to open in new tab: ', completion = 'file' },
+        function(input)
+            if input and input ~= '' then
+                vim.cmd('tabnew ' .. input)
+            end
+        end
+    )
+end
+vim.keymap.set('n', '<leader>tO', open_file_in_tab, { desc = 'Open file in new tab' })
 
--- ============================================================================
--- TABS
--- ============================================================================
-
--- Tab display settings
-vim.opt.showtabline = 2
-vim.opt.tabline = ''
-
--- Transparent tabline appearance
-vim.cmd([[
-hi TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
-]])
-
--- Alternative navigation (more intuitive)
-vim.keymap.set('n', '<leader>to', ':tabnew<CR>', { desc = 'New tab' })
-vim.keymap.set('n', '<leader>tn', ':tabnext<CR>', { desc = 'Next tab' })
-vim.keymap.set('n', '<leader>tp', ':tabprevious<CR>', { desc = 'Previous tab' })
-vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
-
--- Tab moving
-vim.keymap.set('n', '<leader>tm', ':tabmove<CR>', { desc = 'Move tab' })
-vim.keymap.set('n', '<leader>t>', ':tabmove +1<CR>', { desc = 'Move tab right' })
-vim.keymap.set('n', '<leader>t<', ':tabmove -1<CR>', { desc = 'Move tab left' })
-
--- JSON formatting
-vim.keymap.set('n', '<leader>jq', ':%!jq .<CR>', { desc = 'format json expand' })
--- vim.keymap.set('n', '<leader>jqm', ':%!jq -c .<CR>', { desc = 'format json minify' })
-
-
--- ============================================================================
--- FLOATING TERMINAL
--- ============================================================================
-
--- terminal
-local terminal_state = {
-  buf = nil,
-  win = nil,
-  is_open = false
-}
-
-local function FloatingTerminal()
-  -- If terminal is already open, close it (toggle behavior)
-  if terminal_state.is_open and vim.api.nvim_win_is_valid(terminal_state.win) then
-    vim.api.nvim_win_close(terminal_state.win, false)
-    terminal_state.is_open = false
-    return
-  end
-
-  -- Create buffer if it doesn't exist or is invalid
-  if not terminal_state.buf or not vim.api.nvim_buf_is_valid(terminal_state.buf) then
-    terminal_state.buf = vim.api.nvim_create_buf(false, true)
-    -- Set buffer options for better terminal experience
-    vim.api.nvim_buf_set_option(terminal_state.buf, 'bufhidden', 'hide')
-  end
-
-  -- Calculate window dimensions
-  local width = math.floor(vim.o.columns * 0.9)
-  local height = math.floor(vim.o.lines * 0.9)
-  local row = math.floor((vim.o.lines - height) / 2)
-  local col = math.floor((vim.o.columns - width) / 2)
-
-  -- Create the floating window
-  terminal_state.win = vim.api.nvim_open_win(terminal_state.buf, true, {
-    relative = 'editor',
-    width = width,
-    height = height,
-    row = row,
-    col = col,
-    style = 'minimal',
-    border = 'rounded',
-  })
-
-  -- Set transparency for the floating window
-  vim.api.nvim_win_set_option(terminal_state.win, 'winblend', 0)
-
-  -- Set transparent background for the window
-  vim.api.nvim_win_set_option(terminal_state.win, 'winhighlight',
-    'Normal:FloatingTermNormal,FloatBorder:FloatingTermBorder')
-
-  -- Define highlight groups for transparency
-  vim.api.nvim_set_hl(0, "FloatingTermNormal", { bg = "none" })
-  vim.api.nvim_set_hl(0, "FloatingTermBorder", { bg = "none", })
-
-  -- Start terminal if not already running
-  local has_terminal = false
-  local lines = vim.api.nvim_buf_get_lines(terminal_state.buf, 0, -1, false)
-  for _, line in ipairs(lines) do
-    if line ~= "" then
-      has_terminal = true
-      break
+-- Function to duplicate current tab
+local function duplicate_tab()
+    local current_file = vim.fn.expand('%:p')
+    if current_file ~= '' then
+        vim.cmd('tabnew ' .. current_file)
+    else
+        vim.cmd('tabnew')
     end
-  end
-
-  if not has_terminal then
-    vim.fn.termopen(os.getenv("SHELL"))
-  end
-
-  terminal_state.is_open = true
-  vim.cmd("startinsert")
-
-  -- Set up auto-close on buffer leave 
-  vim.api.nvim_create_autocmd("BufLeave", {
-    buffer = terminal_state.buf,
-    callback = function()
-      if terminal_state.is_open and vim.api.nvim_win_is_valid(terminal_state.win) then
-        vim.api.nvim_win_close(terminal_state.win, false)
-        terminal_state.is_open = false
-      end
-    end,
-    once = true
-  })
 end
-
--- Function to explicitly close the terminal
-local function CloseFloatingTerminal()
-  if terminal_state.is_open and vim.api.nvim_win_is_valid(terminal_state.win) then
-    vim.api.nvim_win_close(terminal_state.win, false)
-    terminal_state.is_open = false
-  end
-end
-
--- Key mappings
-vim.keymap.set("n", "<leader>te", FloatingTerminal, { noremap = true, silent = true, desc = "Toggle floating terminal" })
-vim.keymap.set("t", "<C-[>", function()
-  if terminal_state.is_open then
-    vim.api.nvim_win_close(terminal_state.win, false)
-    terminal_state.is_open = false
-  end
-end, { noremap = true, silent = true, desc = "Close floating terminal from terminal mode" })
+vim.keymap.set('n', '<leader>td', duplicate_tab, { desc = 'Duplicate current tab' })
 
 
 -- ============================================================================
