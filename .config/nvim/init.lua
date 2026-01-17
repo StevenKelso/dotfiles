@@ -105,7 +105,8 @@ hi TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
 ]])
 
 -- Tab navigation
-vim.keymap.set('n', '<leader>to', ':tabnew<CR>', { desc = 'New tab' })
+vim.keymap.set('n', '<leader>to', ':$tabnew<CR>', { desc = 'New tab' })
+vim.keymap.set('n', '<leader>tO', ':$tabnew | Pick files<CR>', { desc = 'New tab and fuzzy find' })
 vim.keymap.set('n', '<leader>tn', ':tabnext<CR>', { desc = 'Next tab' })
 vim.keymap.set('n', '<leader>tp', ':tabprevious<CR>', { desc = 'Previous tab' })
 vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
@@ -179,14 +180,13 @@ require("lazy").setup({
             "sainnhe/gruvbox-material",
             lazy = false,
             config = function()
-                vim.g.gruvbox_material_transparent_background = 1
+                vim.g.gruvbox_material_transparent_background = 0
+                vim.g.gruvbox_material_foreground = "original" -- material | mix | original
                 vim.o.background = "dark" -- dark | light
-                vim.g.gruvbox_material_foreground = "material" -- material | mix | original
-                vim.g.gruvbox_material_background = "soft" -- soft | medium | hard
+                vim.g.gruvbox_material_background = "hard" -- soft | medium | hard
+                vim.g.gruvbox_material_statusline_style = "original" -- default | mix | original
                 vim.g.gruvbox_material_ui_contrast = "high" -- low | high
-                vim.g.gruvbox_material_float_style = "bright" -- bright | dim | blend
-                vim.g.gruvbox_material_statusline_style = "default" -- default | mix | original
-                vim.g.gruvbox_material_cursor = "auto"
+                vim.g.gruvbox_material_float_style = "blend" -- bright | dim | blend
                 vim.cmd.colorscheme('gruvbox-material')
             end
         },
@@ -221,9 +221,11 @@ require("lazy").setup({
             opts = {},
         },
 
-        -- mini.pairs
+        -- autopairs
         {
-            "nvim-mini/mini.pairs",
+            'windwp/nvim-autopairs',
+            event = "InsertEnter",
+            config = true,
             opts = {},
         },
 

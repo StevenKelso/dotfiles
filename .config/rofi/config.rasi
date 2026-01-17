@@ -19,7 +19,7 @@ configuration {
 /* global properties */
 * {
     font: "FiraMono Nerd Font 14";
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 /* main window */
