@@ -6,7 +6,9 @@
 
 window#waybar {
     background: #1d2021;
-    border: 2px solid #a89984;
+    border-left: 2px solid #a89984;
+    border-right: 2px solid #a89984;
+    border-bottom: 2px solid #a89984;
 }
 
 tooltip {
