@@ -175,20 +175,17 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        -- gruvbox-material
+        -- gruvbox
         {
-            "sainnhe/gruvbox-material",
-            lazy = false,
-            config = function()
-                vim.g.gruvbox_material_transparent_background = 0
-                vim.g.gruvbox_material_foreground = "original" -- material | mix | original
-                vim.o.background = "dark" -- dark | light
-                vim.g.gruvbox_material_background = "hard" -- soft | medium | hard
-                vim.g.gruvbox_material_statusline_style = "original" -- default | mix | original
-                vim.g.gruvbox_material_ui_contrast = "high" -- low | high
-                vim.g.gruvbox_material_float_style = "blend" -- bright | dim | blend
-                vim.cmd.colorscheme('gruvbox-material')
-            end
+            "ellisonleao/gruvbox.nvim",
+            priority = 1000,
+            config = true,
+            opts = {
+                contrast = "hard",
+            },
+            init = function()
+                vim.cmd.colorscheme("gruvbox")
+            end,
         },
 
         -- indent-blankline
