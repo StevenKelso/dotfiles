@@ -199,30 +199,34 @@ require("lazy").setup({
             },
         },
 
-        -- oil
-        {
-            "stevearc/oil.nvim",
-            opts = {
-                view_options = {
-                    show_hidden = true,
-                }
-            },
-            dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-            lazy = false,
-            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }),
-        },
-
-        -- mini.statusline
-        {
-            "nvim-mini/mini.statusline",
-            opts = {},
-        },
-
         -- autopairs
         {
             'windwp/nvim-autopairs',
             event = "InsertEnter",
             config = true,
+            opts = {},
+        },
+
+        -- nvim-tree
+        {
+            "nvim-tree/nvim-tree.lua",
+            version = "*",
+            lazy = false,
+            dependencies = {"nvim-tree/nvim-web-devicons"},
+            opts = {},
+            init = function()
+                require("nvim-tree").setup {
+                    view = {
+                        width = 40,
+                    },
+                }
+            end,
+            vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim-Tree" }),
+        },
+
+        -- mini.statusline
+        {
+            "nvim-mini/mini.statusline",
             opts = {},
         },
 
@@ -238,6 +242,17 @@ require("lazy").setup({
             opts = {},
             vim.keymap.set("n", "<leader>ff", function() MiniPick.builtin.files({}) end, { desc = "Find Files" }),
             vim.keymap.set("n", "<leader>fg", function() MiniPick.builtin.grep_live({}) end, { desc = "Grep (search in files)" }),
+        },
+
+        -- arrow
+        {
+            "otavioschwanck/arrow.nvim",
+            dependencies = {"nvim-tree/nvim-web-devicons"},
+            opts = {
+                show_icons = true,
+                leader_key = ';', -- Recommended to be a single key
+                buffer_leader_key = 'm', -- Per Buffer Mappings
+            },
         },
     }
 })
