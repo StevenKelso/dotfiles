@@ -4,7 +4,7 @@
     width = 300 # 0 to 300
     height = (0, 300) # 0 to 300
     origin = top-right
-    offset = (0, 0)
+    offset = (9, 9)
     scale = 0
     notification_limit = 20
     progress_bar = true
@@ -63,7 +63,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
     browser = /usr/bin/xdg-open
     always_run_script = true
-    corner_radius = 5
+    corner_radius = 0
     corners = all
     ignore_dbusclose = false
     # Uncomment this if you want to let notifications appear under fullscreen
