@@ -14,7 +14,7 @@
 
     "clock": {
         "interval": 1,
-        "format": "{:%a, %b %d - %I:%M %p}  ",
+        "format": "{:%a, %b %d - %I:%M %p}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "year",
@@ -36,7 +36,7 @@
             "on-click-backward": "tz_down",
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
-	}
+        }
 
     },
 

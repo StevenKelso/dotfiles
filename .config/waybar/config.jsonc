@@ -7,9 +7,6 @@
 
     "position": "top",
 
-    "margin-left": 6,
-    "margin-right": 6,
-
     "modules-left": [
         "custom/launcher",
         "custom/separator",

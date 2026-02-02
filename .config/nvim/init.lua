@@ -99,11 +99,6 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 vim.keymap.set('n', '<leader>jq', ':%!jq .<CR>', { desc = 'format json expand' })
 -- vim.keymap.set('n', '<leader>jqm', ':%!jq -c .<CR>', { desc = 'format json minify' })
 
--- Transparent tabline appearance
-vim.cmd([[
-hi TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
-]])
-
 -- Tab navigation
 vim.keymap.set('n', '<leader>to', ':$tabnew<CR>', { desc = 'New tab' })
 vim.keymap.set('n', '<leader>tO', ':$tabnew | Pick files<CR>', { desc = 'New tab and fuzzy find' })
