@@ -214,6 +214,10 @@ require("lazy").setup({
                     view = {
                         width = 40,
                     },
+                    filters = {
+                        dotfiles = false,
+                        git_ignored = false,
+                    },
                 }
             end,
             vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim-Tree" }),
