@@ -1,6 +1,6 @@
--- ============================================================================
+-- ===========================================================
 -- OPTIONS
--- ============================================================================
+-- ===========================================================
 
 -- Basic settings
 vim.g.mapleader = " "
@@ -48,9 +48,9 @@ vim.opt.showtabline = 2
 vim.opt.tabline = ''
 
 
--- ============================================================================
+-- ===========================================================
 -- KEY MAPPINGS
--- ============================================================================
+-- ===========================================================
 
 -- Y to EOL
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
@@ -112,9 +112,9 @@ vim.keymap.set('n', '<leader>t>', ':tabmove +1<CR>', { desc = 'Move tab right' }
 vim.keymap.set('n', '<leader>t<', ':tabmove -1<CR>', { desc = 'Move tab left' })
 
 
--- ============================================================================
+-- ===========================================================
 -- USEFUL FUNCTIONS
--- ============================================================================
+-- ===========================================================
 
 -- Copy Full File-Path
 vim.keymap.set("n", "<leader>pa", function()
@@ -146,9 +146,9 @@ end
 vim.keymap.set('n', '<leader>td', duplicate_tab, { desc = 'Duplicate current tab' })
 
 
--- ============================================================================
+-- ===========================================================
 -- PLUGINS
--- ============================================================================
+-- ===========================================================
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -252,6 +252,35 @@ require("lazy").setup({
                 leader_key = ';', -- Recommended to be a single key
                 buffer_leader_key = 'm', -- Per Buffer Mappings
             },
+        },
+
+        -- treesitter
+        {
+            'nvim-treesitter/nvim-treesitter',
+            config = function()
+                local filetypes = {
+                    'bash',
+                    'css',
+                    'diff',
+                    'html',
+                    'javascript',
+                    'lua',
+                    'luadoc',
+                    'markdown',
+                    'markdown_inline',
+                    'python',
+                    'query',
+                    'rust',
+                    'solidity',
+                    'vim',
+                    'vimdoc',
+                }
+                require('nvim-treesitter').install(filetypes)
+                vim.api.nvim_create_autocmd('FileType', {
+                    pattern = filetypes,
+                    callback = function() vim.treesitter.start() end,
+                })
+            end,
         },
     }
 })

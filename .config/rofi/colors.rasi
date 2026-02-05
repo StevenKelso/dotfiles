@@ -1,6 +1,5 @@
 * {
     foreground:     #EBDBB2;
-    // background:     #3C3836;
     background:     #1D2021;
     border:         #A89984;
     selected:       #928374;

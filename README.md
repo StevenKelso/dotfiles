@@ -10,6 +10,8 @@
 - Hyprland
 - Hyprpaper
 - Hyprlock
+- Hyprshot
+- Hyprsunset
 - Waybar
 - Rofi
 - Kitty
@@ -20,9 +22,7 @@
 - Nerdfonts
 - Bat
 - Dunst
-- Gammastep
-- Grim
-- Slurp
+- Satty
 
 ## Installation
 - Navigate to your home directory
