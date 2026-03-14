@@ -10,7 +10,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 10
-vim.opt.sidescrolloff = 10
+vim.opt.sidescrolloff = 30
 
 -- Indentation
 vim.opt.tabstop = 4
@@ -212,7 +212,7 @@ require("lazy").setup({
             init = function()
                 require("nvim-tree").setup {
                     view = {
-                        width = 40,
+                        width = 44,
                     },
                     filters = {
                         dotfiles = false,

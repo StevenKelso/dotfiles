@@ -25,7 +25,8 @@ export MANPAGER='nvim +Man!'
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 
 # fixing kitty ssh
-[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+# [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+export TERM='xterm-256color'
 
 # foundry
 export PATH="$PATH:/home/stevenkelso/.config/.foundry/bin"
