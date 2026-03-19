@@ -10,8 +10,7 @@ fi
 export PATH
 
 # history
-HISTCONTROL=ignorespace
-HISTCONTROL=ignoredups
+HISTCONTROL=ignorespace:ignoredups
 HISTSIZE=1000
 HISTFILESIZE=2000
 
@@ -24,8 +23,7 @@ export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 
-# fixing kitty ssh
-# [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+# fixing kitty ssh issues
 export TERM='xterm-256color'
 
 # foundry
@@ -37,18 +35,18 @@ eval "$(starship init bash)"
 # ls / eza
 alias ls="eza"
 alias ll="eza -la"
-alias lst="eza -lhTL1 --icons --git"
-alias lst1="eza -lhTL2 --icons --git"
-alias lst2="eza -lhTL3 --icons --git"
-alias lst3="eza -lhTL4 --icons --git"
-alias lsta="eza -alhTL1 --icons --git"
-alias lsta1="eza -alhTL2 --icons --git"
-alias lsta2="eza -alhTL3 --icons --git"
-alias lsta3="eza -alhTL4 --icons --git"
-alias lstag="eza -alhTL1 --icons --git --git-ignore"
-alias lstag1="eza -alhTL2 --icons --git --git-ignore"
-alias lstag2="eza -alhTL3 --icons --git --git-ignore"
-alias lstag3="eza -alhTL4 --icons --git --git-ignore"
+lst() {
+    local depth=$(( ${1:-0} + 1 ))
+    eza -lhTL"$depth" --icons --git
+}
+lsta() {
+    local depth=$(( ${1:-0} + 1 ))
+    eza -alhTL"$depth" --icons --git
+}
+lstag() {
+    local depth=$(( ${1:-0} + 1 ))
+    eza -alhTL"$depth" --icons --git --git-ignore
+}
 
 # fzf
 eval "$(fzf --bash)"
@@ -106,9 +104,6 @@ frg() {
             ${EDITOR:-nvim} +"$line" "$file"
         )'
 }
-
-# icat
-alias icat="kitty +kitten icat"
 
 # convenience
 alias bashrc="nvim $HOME/.bashrc"
