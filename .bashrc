@@ -37,15 +37,18 @@ alias ls="eza"
 alias ll="eza -la"
 lst() {
     local depth=$(( ${1:-0} + 1 ))
-    eza -lhTL"$depth" --icons --git
+    local filepath=$2
+    eza -lhTL"$depth" --icons --git $filepath
 }
 lsta() {
     local depth=$(( ${1:-0} + 1 ))
-    eza -alhTL"$depth" --icons --git
+    local filepath=$2
+    eza -alhTL"$depth" --icons --git $filepath
 }
 lstag() {
     local depth=$(( ${1:-0} + 1 ))
-    eza -alhTL"$depth" --icons --git --git-ignore
+    local filepath=$2
+    eza -alhTL"$depth" --icons --git --git-ignore $filepath
 }
 
 # fzf
