@@ -110,6 +110,7 @@ frg() {
 
 # convenience
 alias bashrc="nvim $HOME/.bashrc"
+alias dots="cd $HOME/github/stevenkelso/dotfiles"
 alias tldr="tldr --short-options"
 
 # hyprland
