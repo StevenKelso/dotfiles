@@ -27,7 +27,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 export TERM='xterm-256color'
 
 # foundry
-export PATH="$PATH:/home/stevenkelso/.config/.foundry/bin"
+export PATH="$PATH:$HOME/.config/.foundry/bin"
 
 # starship
 eval "$(starship init bash)"
