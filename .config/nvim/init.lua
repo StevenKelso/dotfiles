@@ -26,6 +26,7 @@ vim.opt.smartcase = true
 
 -- Visual settings
 vim.opt.termguicolors = true
+-- vim.cmd.colorscheme("habamax")
 vim.opt.signcolumn = "yes"
 vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.showmode = false
@@ -38,6 +39,7 @@ vim.opt.swapfile = false
 
 -- Behavior settings
 vim.opt.backspace = "indent,eol,start"
+vim.opt.iskeyword:append("-") -- include - in-words
 
 -- Split behavior
 vim.opt.splitbelow = true
@@ -47,10 +49,23 @@ vim.opt.splitright = true
 vim.opt.showtabline = 2
 vim.opt.tabline = ''
 
+-- Misc
+vim.opt.wildmenu = true -- tab completion
+vim.opt.wildmode = "longest:full,full" -- complete longest match, full completion list, cycle through with tab
+
 
 -- ===========================================================
 -- KEY MAPPINGS
 -- ===========================================================
+
+-- better movement in wrapped text
+vim.keymap.set("n", "j", function()
+    return vim.v.count == 0 and "gj" or "j"
+end, { expr = true, silent = true, desc = "Down (wrap-aware)" })
+
+vim.keymap.set("n", "k", function()
+    return vim.v.count == 0 and "gk" or "k"
+end, { expr = true, silent = true, desc = "Up (wrap-aware)" })
 
 -- Y to EOL
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
@@ -145,142 +160,171 @@ local function duplicate_tab()
 end
 vim.keymap.set('n', '<leader>td', duplicate_tab, { desc = 'Duplicate current tab' })
 
-
--- ===========================================================
--- PLUGINS
--- ===========================================================
-
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-    if vim.v.shell_error ~= 0 then
-        vim.api.nvim_echo({
-            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-            { out, "WarningMsg" },
-            { "\nPress any key to exit..." },
-        }, true, {})
-        vim.fn.getchar()
-        os.exit(1)
-    end
-end
-vim.opt.rtp:prepend(lazypath)
-
--- Setup lazy.nvim
-require("lazy").setup({
-    spec = {
-        -- gruvbox
-        {
-            "ellisonleao/gruvbox.nvim",
-            priority = 1000,
-            config = true,
-            opts = {
-                contrast = "hard",
-            },
-            init = function()
-                vim.cmd.colorscheme("gruvbox")
-            end,
-        },
-
-        -- indent-blankline
-        {
-            "lukas-reineke/indent-blankline.nvim",
-            main = "ibl",
-            opts = {
-                scope = {
-                    enabled = false
-                },
-            },
-        },
-
-        -- autopairs
-        {
-            'windwp/nvim-autopairs',
-            event = "InsertEnter",
-            config = true,
-            opts = {},
-        },
-
-        -- nvim-tree
-        {
-            "nvim-tree/nvim-tree.lua",
-            version = "*",
-            lazy = false,
-            dependencies = {"nvim-tree/nvim-web-devicons"},
-            opts = {},
-            init = function()
-                require("nvim-tree").setup {
-                    view = {
-                        width = 44,
-                    },
-                    filters = {
-                        dotfiles = false,
-                        git_ignored = false,
-                    },
-                }
-            end,
-            vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim-Tree" }),
-        },
-
-        -- mini.statusline
-        {
-            "nvim-mini/mini.statusline",
-            opts = {},
-        },
-
-        -- mini.surround
-        {
-            "nvim-mini/mini.surround",
-            opts = {},
-        },
-
-        -- mini.pick
-        {
-            "nvim-mini/mini.pick",
-            opts = {},
-            vim.keymap.set("n", "<leader>ff", function() MiniPick.builtin.files({}) end, { desc = "Find Files" }),
-            vim.keymap.set("n", "<leader>fg", function() MiniPick.builtin.grep_live({}) end, { desc = "Grep (search in files)" }),
-        },
-
-        -- arrow
-        {
-            "otavioschwanck/arrow.nvim",
-            dependencies = {"nvim-tree/nvim-web-devicons"},
-            opts = {
-                show_icons = true,
-                leader_key = ';', -- Recommended to be a single key
-                buffer_leader_key = 'm', -- Per Buffer Mappings
-            },
-        },
-
-        -- treesitter
-        {
-            'nvim-treesitter/nvim-treesitter',
-            config = function()
-                local filetypes = {
-                    'bash',
-                    'css',
-                    'diff',
-                    'html',
-                    'javascript',
-                    'lua',
-                    'luadoc',
-                    'markdown',
-                    'markdown_inline',
-                    'python',
-                    'query',
-                    'rust',
-                    'solidity',
-                    'vim',
-                    'vimdoc',
-                }
-                require('nvim-treesitter').install(filetypes)
-                vim.api.nvim_create_autocmd('FileType', {
-                    pattern = filetypes,
-                    callback = function() vim.treesitter.start() end,
-                })
-            end,
-        },
-    }
+-- wrap, linebreak and spellcheck on markdown and text files
+vim.api.nvim_create_autocmd("FileType", {
+    group = augroup,
+    pattern = { "markdown", "text", "gitcommit" },
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.spell = true
+    end,
 })
+
+
+-- ===========================================================
+-- PLUGINS (vim.pack)
+-- ===========================================================
+
+vim.pack.add({
+    "https://github.com/ellisonleao/gruvbox.nvim",
+    "https://github.com/lukas-reineke/indent-blankline.nvim",
+    "https://github.com/windwp/nvim-autopairs",
+    "https://github.com/otavioschwanck/arrow.nvim",
+    "https://github.com/nvim-tree/nvim-tree.lua",
+    "https://github.com/nvim-mini/mini.statusline",
+    "https://github.com/nvim-mini/mini.surround",
+    "https://github.com/nvim-mini/mini.pick",
+    {
+        src = "https://github.com/nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        build = ":TSUpdate",
+    },
+})
+
+local function packadd(name)
+    vim.cmd("packadd " .. name)
+end
+packadd("gruvbox.nvim")
+packadd("indent-blankline.nvim")
+packadd("nvim-autopairs")
+packadd("arrow.nvim")
+packadd("nvim-tree.lua")
+packadd("mini.statusline")
+packadd("mini.surround")
+packadd("mini.pick")
+packadd("nvim-treesitter")
+
+
+-- ===========================================================
+-- PLUGIN CONFIGS
+-- ===========================================================
+
+-- gruvbox
+require("gruvbox").setup({
+    terminal_colors = true, -- add neovim terminal colors
+    undercurl = true,
+    underline = true,
+    bold = true,
+    italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
+    },
+    strikethrough = true,
+    invert_selection = false,
+    invert_signs = false,
+    invert_tabline = false,
+    inverse = true, -- invert background for search, diffs, statuslines and errors
+    contrast = "hard", -- can be "hard", "soft" or empty string
+    palette_overrides = {},
+    overrides = {},
+    dim_inactive = false,
+    transparent_mode = false,
+})
+vim.cmd("colorscheme gruvbox")
+
+-- indent-blankline
+require("ibl").setup({})
+
+-- nvim-autopairs
+require("nvim-autopairs").setup({})
+
+-- arrow
+require('arrow').setup({
+    show_icons = true,
+    leader_key = ';', -- Recommended to be a single key
+    buffer_leader_key = 'm', -- Per Buffer Mappings
+})
+
+-- nvim-tree
+require("nvim-tree").setup({
+    view = {
+        width = 45,
+    },
+    filters = {
+        dotfiles = false,
+        git_ignored = false,
+    },
+    renderer = {
+        group_empty = true,
+    },
+})
+vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim-Tree" })
+
+-- mini.statusline
+require('mini.statusline').setup({})
+
+-- mini.surround
+require('mini.surround').setup({})
+
+-- mini.pick
+require('mini.pick').setup({})
+vim.keymap.set("n", "<leader>ff", function() MiniPick.builtin.files({}) end, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>fg", function() MiniPick.builtin.grep_live({}) end, { desc = "Grep (search in files)" })
+
+-- nvim-treesitter
+local setup_treesitter = function()
+    local treesitter = require("nvim-treesitter")
+    treesitter.setup({})
+    local ensure_installed = {
+        "bash",
+        "c",
+        "cpp",
+        "css",
+        "go",
+        "html",
+        "json",
+        "jsonc",
+        "javascript",
+        "lua",
+        "markdown",
+        "python",
+        "rust",
+        "solidity",
+        "typescript",
+        "vim",
+        "vimdoc",
+    }
+
+    local config = require("nvim-treesitter.config")
+
+    local already_installed = config.get_installed()
+    local parsers_to_install = {}
+
+    for _, parser in ipairs(ensure_installed) do
+        if not vim.tbl_contains(already_installed, parser) then
+            table.insert(parsers_to_install, parser)
+        end
+    end
+
+    if #parsers_to_install > 0 then
+        treesitter.install(parsers_to_install)
+    end
+
+    local group = vim.api.nvim_create_augroup("TreeSitterConfig", { clear = true })
+    vim.api.nvim_create_autocmd("FileType", {
+        group = group,
+        callback = function(args)
+            if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match)) then
+                vim.treesitter.start(args.buf)
+            end
+        end,
+    })
+end
+
+setup_treesitter()
+
+
