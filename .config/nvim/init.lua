@@ -160,14 +160,14 @@ local function duplicate_tab()
 end
 vim.keymap.set('n', '<leader>td', duplicate_tab, { desc = 'Duplicate current tab' })
 
--- wrap, linebreak and spellcheck on markdown and text files
+-- wrap, linebreak and spellcheck for markdown and text files
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup,
     pattern = { "markdown", "text", "gitcommit" },
     callback = function()
         vim.opt_local.wrap = true
         vim.opt_local.linebreak = true
-        vim.opt_local.spell = true
+        vim.opt_local.spell = false
     end,
 })
 
@@ -184,12 +184,15 @@ vim.pack.add({
     "https://github.com/nvim-tree/nvim-tree.lua",
     "https://github.com/nvim-mini/mini.statusline",
     "https://github.com/nvim-mini/mini.surround",
-    "https://github.com/nvim-mini/mini.pick",
+    "https://github.com/ibhagwan/fzf-lua",
     {
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
         branch = "main",
         build = ":TSUpdate",
     },
+    -- LSP
+    "https://github.com/mason-org/mason.nvim",
+    "https://github.com/neovim/nvim-lspconfig",
 })
 
 local function packadd(name)
@@ -202,8 +205,11 @@ packadd("arrow.nvim")
 packadd("nvim-tree.lua")
 packadd("mini.statusline")
 packadd("mini.surround")
-packadd("mini.pick")
+packadd("fzf-lua")
 packadd("nvim-treesitter")
+-- LSP
+packadd("mason.nvim")
+packadd("nvim-lspconfig")
 
 
 -- ===========================================================
@@ -270,10 +276,27 @@ require('mini.statusline').setup({})
 -- mini.surround
 require('mini.surround').setup({})
 
--- mini.pick
-require('mini.pick').setup({})
-vim.keymap.set("n", "<leader>ff", function() MiniPick.builtin.files({}) end, { desc = "Find Files" })
-vim.keymap.set("n", "<leader>fg", function() MiniPick.builtin.grep_live({}) end, { desc = "Grep (search in files)" })
+-- fzf-lua
+require("fzf-lua").setup({})
+
+vim.keymap.set("n", "<leader>ff", function()
+	require("fzf-lua").files()
+end, { desc = "FZF Files" })
+vim.keymap.set("n", "<leader>fg", function()
+	require("fzf-lua").live_grep({ cmd = "git grep --line-number --column --color=always" })
+end, { desc = "FZF Live Grep" })
+vim.keymap.set("n", "<leader>fb", function()
+	require("fzf-lua").buffers()
+end, { desc = "FZF Buffers" })
+vim.keymap.set("n", "<leader>fh", function()
+	require("fzf-lua").help_tags()
+end, { desc = "FZF Help Tags" })
+vim.keymap.set("n", "<leader>fx", function()
+	require("fzf-lua").diagnostics_document()
+end, { desc = "FZF Diagnostics Document" })
+vim.keymap.set("n", "<leader>fX", function()
+	require("fzf-lua").diagnostics_workspace()
+end, { desc = "FZF Diagnostics Workspace" })
 
 -- nvim-treesitter
 local setup_treesitter = function()
@@ -287,7 +310,6 @@ local setup_treesitter = function()
         "go",
         "html",
         "json",
-        "jsonc",
         "javascript",
         "lua",
         "markdown",
@@ -326,5 +348,13 @@ local setup_treesitter = function()
 end
 
 setup_treesitter()
+
+-- mason
+require("mason").setup({})
+
+
+-- ============================================================================
+-- LSP, Linting, Formatting & Completion
+-- ============================================================================
 
 
