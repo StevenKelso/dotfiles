@@ -144,8 +144,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		"*.html",
 		"*.sh",
 		"*.bash",
-		"*.rs",
-		"*.sol",
 	},
 	callback = function(args)
 		-- avoid formatting non-file buffers (helps prevent weird write prompts)
@@ -478,7 +476,7 @@ local function lsp_on_attach(ev)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
 	vim.keymap.set("n", "<leader>fd", function()
-		require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+		require("fzf-lua").lsp_definitions({ jump1 = true })
 	end, opts)
 	vim.keymap.set("n", "<leader>fr", function()
 		require("fzf-lua").lsp_references()
@@ -531,7 +529,11 @@ vim.lsp.config("pyright", {})
 vim.lsp.config("bashls", {})
 vim.lsp.config("ts_ls", {})
 vim.lsp.config("gopls", {})
-vim.lsp.config("clangd", {})
+vim.lsp.config("solidity_ls", {
+	cmd = { "vscode-solidity-server", "--stdio" },
+	filetypes = { "solidity" },
+	root_dir = vim.fs.root(0, { ".git", "hardhat.config.js", "hardhat.config.ts", "foundry.toml" }),
+})
 
 do
 	local luacheck = require("efmls-configs.linters.luacheck")
@@ -591,7 +593,6 @@ vim.lsp.enable({
 	"bashls",
 	"ts_ls",
 	"gopls",
-	"clangd",
 	"efm",
-	"solidity_ls_nomicfoundation",
+	"solidity_ls",
 })

@@ -29,6 +29,9 @@ export TERM='xterm-256color'
 # foundry
 export PATH="$PATH:$HOME/.config/.foundry/bin"
 
+# go
+export GOPATH=$HOME/.local/share/go
+
 # starship
 eval "$(starship init bash)"
 
