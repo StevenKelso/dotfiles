@@ -224,7 +224,7 @@ vim.pack.add({
 	"https://github.com/lukas-reineke/indent-blankline.nvim",
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/otavioschwanck/arrow.nvim",
-	"https://github.com/nvim-tree/nvim-tree.lua",
+	"https://github.com/nvim-mini/mini.files",
 	"https://github.com/nvim-mini/mini.statusline",
 	"https://github.com/nvim-mini/mini.surround",
 	"https://github.com/ibhagwan/fzf-lua",
@@ -246,7 +246,7 @@ packadd("gruvbox.nvim")
 packadd("indent-blankline.nvim")
 packadd("nvim-autopairs")
 packadd("arrow.nvim")
-packadd("nvim-tree.lua")
+packadd("mini.files")
 packadd("mini.statusline")
 packadd("mini.surround")
 packadd("fzf-lua")
@@ -299,20 +299,14 @@ require("arrow").setup({
 	buffer_leader_key = "m", -- Per Buffer Mappings
 })
 
--- nvim-tree
-require("nvim-tree").setup({
-	view = {
-		width = 45,
-	},
-	filters = {
-		dotfiles = false,
-		git_ignored = false,
-	},
-	renderer = {
-		group_empty = true,
+-- mini.files
+require("mini.files").setup({
+	mappings = {
+		close = "-",
+		go_in_plus = "l",
 	},
 })
-vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>", { desc = "Toggle Nvim-Tree" })
+vim.keymap.set("n", "-", "<cmd>lua MiniFiles.open()<CR>", { desc = "Open mini.files" })
 
 -- mini.statusline
 require("mini.statusline").setup({})
@@ -321,7 +315,11 @@ require("mini.statusline").setup({})
 require("mini.surround").setup({})
 
 -- fzf-lua
-require("fzf-lua").setup({})
+require("fzf-lua").setup({
+	lsp = {
+		jump1_action = FzfLua.actions.file_tabedit,
+	},
+})
 
 vim.keymap.set("n", "<leader>ff", function()
 	require("fzf-lua").files()
@@ -446,7 +444,7 @@ local function lsp_on_attach(ev)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
 	vim.keymap.set("n", "<leader>gd", function()
-		require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+		require("fzf-lua").lsp_definitions({ jump1 = true })
 	end, opts)
 
 	vim.keymap.set("n", "<leader>gD", vim.lsp.buf.definition, opts)
