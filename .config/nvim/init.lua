@@ -287,7 +287,11 @@ require("gruvbox").setup({
 vim.cmd("colorscheme gruvbox")
 
 -- indent-blankline
-require("ibl").setup({})
+require("ibl").setup({
+	scope = {
+		enabled = false,
+	},
+})
 
 -- nvim-autopairs
 require("nvim-autopairs").setup({})
