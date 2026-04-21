@@ -57,6 +57,12 @@ vim.opt.wildmode = "longest:full,full" -- complete longest match, full completio
 -- KEY MAPPINGS
 -- ===========================================================
 
+-- fast actions
+vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "quit" })
+vim.keymap.set("n", "<leader>Q", ":q!<CR>", { desc = "quit" })
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "write" })
+vim.keymap.set("n", "<leader>x", ":x<CR>", { desc = "write and quit" })
+
 -- better movement in wrapped text
 vim.keymap.set("n", "j", function()
 	return vim.v.count == 0 and "gj" or "j"
@@ -85,7 +91,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yankin
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x')
 
--- Better window navigation
+-- window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
@@ -111,11 +117,10 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- JSON formatting
 vim.keymap.set("n", "<leader>jq", ":%!jq .<CR>", { desc = "format json expand" })
--- vim.keymap.set('n', '<leader>jqm', ':%!jq -c .<CR>', { desc = 'format json minify' })
 
 -- Tab navigation
 vim.keymap.set("n", "<leader>to", ":$tabnew<CR>", { desc = "New tab" })
-vim.keymap.set("n", "<leader>tO", ":$tabnew | Pick files<CR>", { desc = "New tab and fuzzy find" })
+vim.keymap.set("n", "<leader>tO", ":$tabnew | FzfLua files<CR>", { desc = "New tab and fuzzy find" })
 vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next tab" })
 vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous tab" })
 vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close tab" })
@@ -328,21 +333,18 @@ require("fzf-lua").setup({
 vim.keymap.set("n", "<leader>ff", function()
 	require("fzf-lua").files()
 end, { desc = "FZF Files" })
+
 vim.keymap.set("n", "<leader>fg", function()
 	require("fzf-lua").live_grep({ cmd = "git grep --line-number --column --color=always" })
 end, { desc = "FZF Live Grep" })
+
 vim.keymap.set("n", "<leader>fb", function()
 	require("fzf-lua").buffers()
 end, { desc = "FZF Buffers" })
+
 vim.keymap.set("n", "<leader>fh", function()
 	require("fzf-lua").help_tags()
 end, { desc = "FZF Help Tags" })
-vim.keymap.set("n", "<leader>fx", function()
-	require("fzf-lua").diagnostics_document()
-end, { desc = "FZF Diagnostics Document" })
-vim.keymap.set("n", "<leader>fX", function()
-	require("fzf-lua").diagnostics_workspace()
-end, { desc = "FZF Diagnostics Workspace" })
 
 -- nvim-treesitter
 local setup_treesitter = function()
@@ -447,32 +449,10 @@ local function lsp_on_attach(ev)
 	local bufnr = ev.buf
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
-	vim.keymap.set("n", "<leader>gd", function()
-		require("fzf-lua").lsp_definitions({ jump1 = true })
-	end, opts)
-
-	vim.keymap.set("n", "<leader>gD", vim.lsp.buf.definition, opts)
-
-	vim.keymap.set("n", "<leader>gS", function()
-		vim.cmd("vsplit")
-		vim.lsp.buf.definition()
-	end, opts)
-
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 	vim.keymap.set("n", "<leader>D", function()
 		vim.diagnostic.open_float({ scope = "line" })
-	end, opts)
-	vim.keymap.set("n", "<leader>d", function()
-		vim.diagnostic.open_float({ scope = "cursor" })
-	end, opts)
-	vim.keymap.set("n", "<leader>nd", function()
-		vim.diagnostic.jump({ count = 1 })
-	end, opts)
-
-	vim.keymap.set("n", "<leader>pd", function()
-		vim.diagnostic.jump({ count = -1 })
 	end, opts)
 
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -480,20 +460,18 @@ local function lsp_on_attach(ev)
 	vim.keymap.set("n", "<leader>fd", function()
 		require("fzf-lua").lsp_definitions({ jump1 = true })
 	end, opts)
+
+	vim.keymap.set("n", "<leader>fs", function()
+		vim.cmd("vsplit")
+		vim.lsp.buf.definition()
+	end, opts)
+
 	vim.keymap.set("n", "<leader>fr", function()
 		require("fzf-lua").lsp_references()
 	end, opts)
+
 	vim.keymap.set("n", "<leader>ft", function()
 		require("fzf-lua").lsp_typedefs()
-	end, opts)
-	vim.keymap.set("n", "<leader>fs", function()
-		require("fzf-lua").lsp_document_symbols()
-	end, opts)
-	vim.keymap.set("n", "<leader>fw", function()
-		require("fzf-lua").lsp_workspace_symbols()
-	end, opts)
-	vim.keymap.set("n", "<leader>fi", function()
-		require("fzf-lua").lsp_implementations()
 	end, opts)
 
 	if client:supports_method("textDocument/codeAction", bufnr) then
@@ -512,9 +490,10 @@ end
 
 vim.api.nvim_create_autocmd("LspAttach", { group = augroup, callback = lsp_on_attach })
 
-vim.keymap.set("n", "<leader>q", function()
+vim.keymap.set("n", "<leader>dq", function()
 	vim.diagnostic.setloclist({ open = true })
 end, { desc = "Open diagnostic list" })
+
 vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
 
 -- blink stuff goes here
