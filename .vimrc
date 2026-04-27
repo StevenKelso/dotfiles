@@ -1,12 +1,13 @@
-" leader key
+" basic settings
 let mapleader=" "
-
-" colorscheme
-colorscheme retrobox
-
-" line numbering
 set number
 set relativenumber
+set scrolloff=10
+set sidescrolloff=30
+
+" colors
+colorscheme retrobox
+set t_ut=
 
 " indenting
 set tabstop=4
@@ -21,6 +22,7 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
+nnoremap <leader>c :nohlsearch<CR>
 
 " enable syntax highlighting
 syntax on
@@ -33,11 +35,6 @@ set noswapfile
 
 " clear search highlighting quickly
 nnoremap <leader>c :nohlsearch<CR>
-
-" basic keymaps
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>x :x<CR>
 
 " splitting
 nnoremap <leader>sv :vsplit<CR>

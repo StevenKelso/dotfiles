@@ -1,5 +1,4 @@
-/* import color scheme */
-@import "/colors.rasi"
+@import "themes/colorscheme.rasi"
 
 /* configuration */
 configuration {
@@ -14,6 +13,9 @@ configuration {
     kb-accept-entry: "Return";
     kb-remove-to-eol: "";
     kb-cancel: "Control+bracketleft,Escape";
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: [ MousePrimary, MouseSecondary, MouseDPrimary ];
 }
 
 /* global properties */
@@ -88,7 +90,7 @@ entry {
 listview {
     enabled: true;
     columns: 1;
-    lines: 4;
+    lines: 6;
     cycle: false;
     dynamic: true;
     scrollbar: false;

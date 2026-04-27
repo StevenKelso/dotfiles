@@ -1,0 +1,136 @@
+@import "themes/colorscheme.rasi"
+
+/* configuration */
+configuration {
+    modi: "drun,window";
+    show-icons: true;
+    drun-display-format: "{name}";
+    case-sensitive: false;
+    cycle: false;
+    window-format: "{w} {c}";
+    kb-row-up: "Control+k";
+    kb-row-down: "Control+j";
+    kb-accept-entry: "Return";
+    kb-remove-to-eol: "";
+    kb-cancel: "Control+bracketleft,Escape";
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: [ MousePrimary, MouseSecondary, MouseDPrimary ];
+}
+
+/* global properties */
+* {
+    font: "FiraMono Nerd Font 14";
+    border-radius: 0px;
+}
+
+/* main window */
+window {
+    enabled: true;
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    cursor: "default";
+    width: 500;
+    border: 2px;
+    border-color: @border;
+    background-color: @background;
+}
+
+/* main box */
+mainbox {
+    enabled: true;
+    background-color: transparent;
+    orientation: vertical;
+    children: ["inputbar", "listbox"];
+}
+listbox {
+    spacing: 10px;
+    padding: 10px;
+    background-color: transparent;
+    orientation: vertical;
+    children: ["listview"];
+}
+
+/* inputbar */
+inputbar {
+    enabled: true;
+    spacing: 10px;
+    padding: 10px;
+    background-color: @background;
+    text-color: @foreground;
+    orientation: horizontal;
+    border: 0 0 2px 0;
+    border-color: @border;
+    children: ["textbox-prompt-colon", "entry"];
+    border-radius: 0px;
+}
+textbox-prompt-colon {
+    enabled: true;
+    expand: false;
+    str: " ";
+    spacing: 10px;
+    padding: 10px;
+    background-color: transparent;
+    text-color: @foreground;
+}
+entry {
+    enabled: true;
+    expand: true;
+    spacing: 10px;
+    padding: 10px;
+    background-color: @background;
+    text-color: @foreground;
+    cursor: text;
+    placeholder: "Search...";
+    placeholder-color: @foreground;
+}
+
+/* listview */
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 6;
+    cycle: false;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    background-color: transparent;
+    text-color: @foreground;
+    cursor: "default";
+}
+
+/* elements */
+element {
+    enabled: true;
+    spacing: 10px;
+    padding: 10px;
+    background-color: transparent;
+    text-color: @foreground;
+    cursor: pointer;
+}
+element normal.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+element selected.normal {
+    background-color: @selected;
+    text-color: @background;
+}
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 32px;
+    cursor: inherit;
+}
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    padding: 0px 0px 0px 5px;
+}

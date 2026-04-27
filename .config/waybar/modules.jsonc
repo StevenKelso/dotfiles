@@ -100,13 +100,14 @@
 
     "custom/launcher": {
         "format": "",
-        "on-click": "rofi -show drun -theme $HOME/.config/rofi/config.rasi",
+        // "on-click": "rofi -show drun -theme $HOME/.config/rofi/config.rasi",
+        "on-click": "$HOME/.config/rofi/scripts/launcher.sh",
         "tooltip": false
     },
 
     "custom/shutdown": {
         "format": " ",
-        "on-click": "bash $(systemctl poweroff)",
+        "on-click": "$HOME/.config/rofi/scripts/powermenu.sh",
         "tooltip": false
     }
 }
