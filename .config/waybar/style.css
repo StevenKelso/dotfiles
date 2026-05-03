@@ -1,15 +1,15 @@
 * {
-    font-family: FiraMono Nerd Font;
-    font-weight: bold;
-    font-size: 18px;
+  font-family: FiraMono Nerd Font;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 window#waybar {
-    background: #1d2021;
+  background: #1d2021;
 }
 
 tooltip {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 #custom-launcher,
@@ -22,35 +22,35 @@ tooltip {
 #pulseaudio,
 #network,
 #battery {
-    margin: 0px 0px 0px 0px;
-    padding: 0px 5px 0px 5px;
-    color: #a89984;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 5px 0px 5px;
+  color: #a89984;
 }
 
 #workspaces {
-    margin-left: -10px;
+  margin-left: -10px;
 }
 
 #battery {
-    margin-left: 12px;
+  margin-left: 12px;
 }
 
 #custom-separator {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 #custom-launcher {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 #custom-shutdown {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 #workspaces button:hover {
-    /* this is necessary to disable the box shadow effect */
-    box-shadow: inherit;
-    text-shadow: inherit;
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0);
+  /* this is necessary to disable the box shadow effect */
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0);
 }

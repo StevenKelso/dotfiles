@@ -9,7 +9,7 @@
       "src": "https://github.com/creativenull/efmls-configs-nvim"
     },
     "fzf-lua": {
-      "rev": "2e29d5f233defe3c5587df0e4dd29af2bd95a5a7",
+      "rev": "10c19a5f08bfeed34b930a1efddda3a9a983e6e2",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gruvbox.nvim": {
@@ -45,11 +45,11 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "bf5abe69c1874531f359a822d0cff4d73e26113f",
+      "rev": "31026a13eefb20681124706a79fc1df6bf11ab27",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-tree.lua": {
-      "rev": "24cfcc94372e526fd9e1c2803ede9e0f1715e33f",
+      "rev": "f9bfc0059eca24546b69a7006110463da4808f8f",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
