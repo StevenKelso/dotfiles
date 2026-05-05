@@ -8,8 +8,8 @@ configuration {
     case-sensitive: false;
     cycle: false;
     window-format: "{w} {c}";
-    kb-row-up: "Control+k";
-    kb-row-down: "Control+j";
+    kb-row-up: "Control+p";
+    kb-row-down: "Control+n";
     kb-accept-entry: "Return";
     kb-remove-to-eol: "";
     kb-cancel: "Control+bracketleft,Escape";
