@@ -1,0 +1,31 @@
+{
+    "include": [
+        "$HOME/.config/waybar/modules.jsonc"
+    ],
+
+    "layer": "bottom",
+
+    "position": "top",
+
+    "modules-left": [
+        "custom/launcher",
+        "custom/separator",
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "tray",
+        "custom/separator",
+        "pulseaudio",
+        "pulseaudio#input",
+        "custom/separator",
+        "network",
+        "battery",
+        "custom/separator",
+        "custom/shutdown"
+    ]
+}
