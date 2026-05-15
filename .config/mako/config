@@ -1,0 +1,47 @@
+# Position
+anchor=top-right
+margin=20,30,20,20
+padding=10
+
+# Size
+width=350
+height=120
+
+# Appearance
+background-color=#181616
+text-color=#cdd6f4
+border-color=#d4be98
+border-size=2
+progress-color=over #222222
+border-radius=0
+
+# Font
+font=Iosevka Nerd Font 14
+
+# Timing
+default-timeout=1500
+ignore-timeout=0
+
+# Group similar notifications
+group-by=app-name
+
+# Max visible notifications
+max-visible=5
+
+# Icons
+icons=1
+max-icon-size=48
+
+# Markup support
+markup=1
+
+# Actions
+actions=1
+
+# Format
+format=<b>%s</b>\n%b
+
+# High urgency notifications
+[urgency=high]
+border-color=#f38ba8
+default-timeout=0

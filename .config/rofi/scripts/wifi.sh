@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dunstify "WiFi Manager" "Getting list of available WiFi networks"
+notify-send "WiFi Manager" "Getting list of available WiFi networks"
 
 # Scan and list available networks
 networks=$(nmcli -f SSID,SIGNAL,SECURITY device wifi list | tail -n +2 | awk '{printf "%-30s %s%%  %s\n", $1, $2, $3}')

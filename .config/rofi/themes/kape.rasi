@@ -1,0 +1,23 @@
+* {
+    background: #181616; // black-dark
+    foreground: #d4be94; // cream
+    transparent: #000000; //transparent
+
+    black: #181616; // color0
+    red: #b53535; // color1
+    green: #b4c76e; // color2
+    yellow: #e7bb5c; // color3
+    blue: #7b8fd4; // color4
+    purple: #b06880; // color5
+    aqua: #689d8a; // color6
+    white: #c2c2c2; // color7
+
+    black-alt: #2e2a2a; // color8
+    red-alt: #c94040; // color9
+    green-alt: #cad98a; // color10
+    yellow-alt: #f0cc7a; // color11
+    blue-alt: #9aaae0; // color12
+    purple-alt: #c8889a; // color13
+    aqua-alt: #89b8a8; // color14
+    white-alt: #d4be98; // color15
+}

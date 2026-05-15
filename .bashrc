@@ -50,7 +50,7 @@ alias ewaybar="hyprctl dispatch exec waybar"
 alias rwaybar="killall waybar && hyprctl dispatch exec waybar"
 alias ehyprpaper="hyprctl dispatch exec hyprpaper"
 alias rhyprpaper="killall hyprpaper && hyprctl dispatch exec hyprpaper"
-alias rdunst="pkill -HUP dunst"
+alias rmako="makoctl reload"
 
 # fuzzy cd
 fcd() {

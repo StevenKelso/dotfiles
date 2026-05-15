@@ -1,11 +1,11 @@
 * {
-  font-family: FiraMono Nerd Font;
+  font-family: iosevka nerd font;
   font-weight: bold;
   font-size: 24px;
 }
 
 window#waybar {
-  background: #1d2021;
+  background: #181616;
 }
 
 tooltip {
@@ -24,7 +24,7 @@ tooltip {
 #battery {
   margin: 0px 0px 0px 0px;
   padding: 0px 5px 0px 5px;
-  color: #a89984;
+  color: #d4be98;
 }
 
 #workspaces {

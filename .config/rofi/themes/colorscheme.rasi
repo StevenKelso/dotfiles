@@ -1,1 +1,2 @@
-@import "gruvbox-material.rasi"
+@import "gruvbox.rasi"
+// @import "kape.rasi"
