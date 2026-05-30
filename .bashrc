@@ -45,11 +45,6 @@ alias bashrc="nvim $HOME/.bashrc"
 alias dots="cd $HOME/repos/stevenkelso/dotfiles"
 alias tldr="tldr --short-options"
 alias diff="diff --color=auto"
-# hyprland
-alias ewaybar="hyprctl dispatch exec waybar"
-alias rwaybar="killall waybar && hyprctl dispatch exec waybar"
-alias ehyprpaper="hyprctl dispatch exec hyprpaper"
-alias rhyprpaper="killall hyprpaper && hyprctl dispatch exec hyprpaper"
 alias rmako="makoctl reload"
 
 # fuzzy cd

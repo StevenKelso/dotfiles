@@ -1,0 +1,31 @@
+position = "top"
+height = 36
+
+[[start]]
+type = "workspaces"
+
+[[center]]
+type = "focused"
+icon_size = 24
+
+[[end]]
+type = "tray"
+icon_size = 24
+
+[[end]]
+type = "sys_info"
+format = [
+    "{cpu_percent}% ",
+    "{memory_percent}% ",
+]
+
+[end.interval]
+cpu = 1
+
+[[end]]
+type = "battery"
+icon_size = 24
+show_if = "ls /sys/class/power_supply/ | grep --quiet '^BAT'"
+
+[[end]]
+type = "clock"

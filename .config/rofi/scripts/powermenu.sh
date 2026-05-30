@@ -17,9 +17,9 @@ case "$chosen" in
         reboot
         ;;
     "$lock")
-        hyprlock
+        swaylock
         ;;
     "$logout")
-        hyprctl dispatch exit
+        niri msg action quit
         ;;
 esac
