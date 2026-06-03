@@ -1,4 +1,5 @@
 # Position
+layer=overlay
 anchor=top-right
 margin=16
 padding=10

@@ -1,124 +1,86 @@
 @import "themes/colorscheme.rasi"
 
 * {
-    margin : 0;
-    padding : 0;
-    spacing : 0;
-    highlight : underline bold #ca3433;
-    font : "Iosevka Nerd Font 18";
+    font: "Iosevka Nerd Font 16";
 }
 
 configuration {
-    display-drun : "APPS";
-    display-run : "CMD";
-    display-window : "WIN";
+    modi: "drun,run,window";
+    display-drun: "drun";
+    display-run: "run";
+    display-recursivebrowser: "files";
     hover-select: true;
     me-select-entry: "";
     me-accept-entry: [ MousePrimary, MouseSecondary, MouseDPrimary ];
 }
 
 window {
-    width : 25%;
-    border : 2px;
-    border-color : @yellow;
-    background-color : @background;
-    location : center;
-    orientaion : horizontal;
-    children : [inputbar, message, listview];
+    width: 750px;
+    border: 2px;
+    padding: 30px;
+    border-color: @yellow;
+    background-color: @background;
+    location: center;
+    children: [ "inputbar", "listview", "mode-switcher" ];
 }
 
 inputbar {
-    background-color : @background;
-    children : [prompt,entry];
-}
-
-prompt {
-    margin : 6px 0 6px 6px;
-    padding : 3px 6px;
-    text-color : @background;
-    border : 3px;
-    border-color : @red;
-    background-color : @red;
+    background-color: @background;
+    children: [entry];
 }
 
 entry {
-    margin : 6px;
-    padding : 3px 6px;
-    text-color : @red;
-    border : 3px;
-    border-color : @yellow;
-    background-color : @background;
+    margin: 6px 12px 0px 17px;
+    padding: 6px 0px 6px 0px;
+    border: 0px 0px 2px 0px;
+    border-color: @yellow;
+    text-color: @white;
+    background-color: @background;
+    placeholder: "search...";
+    placeholder-color: #3c3836;
 }
 
 listview {
-    lines : 8;
-    children : [element];
-    margin : 0 6px 6px 6px;
-    padding : 6px 6px 0px 6px;
-    border : 3px;
-    border-color : @yellow;
-    background-color : @background;
+    lines: 10;
+    children: [element];
+    margin: 0 6px 6px 6px;
+    padding: 6px 6px 0px 6px;
+    border: 0px;
+    border-color: @yellow;
+    background-color: @background;
     cycle: false;
+    scrollbar: true;
 }
 
-element {
-    margin : 0 0 6px 0 ;
-    background-color : @background;
-}
-
-element selected active {
-    text-color : @foreground;
-    background-color : @red-alt;
+scrollbar {
+    handle-width: 2px;
+    handle-color: @yellow;
+    background-color: #3c3836;
+    margin: 0px 0px 0px 10px;
 }
 
 element-text {
-    padding : 6px;
-    text-color : @foreground;
-    background-color : @background;
+    padding: 5px;
+    text-color: @white;
+    background-color: @background;
 }
 
 element-text selected {
-    text-color : @background;
-    background-color : @yellow;
+    text-color: @yellow;
 }
 
-element-text selected active {
-    text-color : @foreground;
-    background-color : @red-alt;
+mode-switcher {
+    orientation: horizontal;
+    spacing: 0px;
+    margin: 0px 12px 0px 15px;
 }
 
-element-icon{
-    size : 20px;
-    padding : 6px;
-    background-color : @background;
+button {
+    padding: 8px 24px;
+    background-color: @white;
 }
 
-element-icon selected {
-    text-color : @background;
-    background-color : @yellow;
-}
-
-element-icon selected active {
-    text-color : @foreground;
-    background-color : @red-alt;
-}
-
-message {
-    margin : 0;
-    expand : true;
-    background-color : @background;
-    children : [textbox];
-}
-
-textbox {
-    expand : true;
-    padding : 6px;
-    border-color : @red-alt;
-    background-color : @background;
-    text-color : @red-alt;
-}
-
-error-message {
-    expand : true;
-    text-color : @background;
+button selected {
+    background-color: @yellow;
+    text-color: @background;
 }

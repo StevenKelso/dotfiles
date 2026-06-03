@@ -46,6 +46,7 @@ alias dots="cd $HOME/repos/stevenkelso/dotfiles"
 alias tldr="tldr --short-options"
 alias diff="diff --color=auto"
 alias rmako="makoctl reload"
+alias rironbar="killall ironbar && niri msg action spawn -- ironbar"
 
 # fuzzy cd
 fcd() {

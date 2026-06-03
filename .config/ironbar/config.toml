@@ -5,11 +5,16 @@ height = 36
 type = "workspaces"
 
 [[center]]
-type = "focused"
-icon_size = 24
+type = "clock"
+format = "%A, %B %e %Y - %I:%M %p"
+format_popup = "%I:%M:%S"
 
 [[end]]
 type = "tray"
+icon_size = 24
+
+[[end]]
+type = "volume"
 icon_size = 24
 
 [[end]]
@@ -26,6 +31,3 @@ cpu = 1
 type = "battery"
 icon_size = 24
 show_if = "ls /sys/class/power_supply/ | grep --quiet '^BAT'"
-
-[[end]]
-type = "clock"

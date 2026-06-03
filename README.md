@@ -8,8 +8,8 @@ My personal Linux configuration files.
 
 | Tool | Purpose |
 |------|---------|
-| [Hyprland](https://hyprland.org/) | Wayland compositor |
-| [Waybar](https://github.com/Alexays/Waybar) | Status bar |
+| [Niri](https://niri-wm.github.io/niri/) | Wayland compositor |
+| [Ironbar](https://github.com/jakestanger/ironbar) | Status bar |
 | [Kitty](https://sw.kovidgoyal.net/kitty/) | Terminal emulator |
 | [Rofi](https://github.com/davatorium/rofi) | App launcher / menus |
 | [Mako](https://github.com/emersion/mako) | Notification daemon |
