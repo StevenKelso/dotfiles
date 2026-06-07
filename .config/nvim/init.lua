@@ -390,6 +390,21 @@ local diagnostic_signs = {
     Info = "",
 }
 
+-- prettierd
+-- typescript-language-server
+-- pyright
+-- black
+-- bash-language-server
+-- efm
+-- eslint_d
+-- fixjson
+-- flake8
+-- shellcheck
+-- shfmt
+-- solhint
+-- vscode-solidity-server
+
+
 vim.diagnostic.config({
     virtual_text = { prefix = "●", spacing = 4 },
     signs = {
@@ -461,18 +476,9 @@ end, { desc = "Open diagnostic list" })
 
 -- blink stuff goes here
 
-vim.lsp.config("lua_ls", {
-    settings = {
-        Lua = {
-            diagnostics = { globals = { "vim" } },
-            telemetry = { enable = false },
-        },
-    },
-})
 vim.lsp.config("pyright", {})
 vim.lsp.config("bashls", {})
 vim.lsp.config("ts_ls", {})
-vim.lsp.config("gopls", {})
 vim.lsp.config("solidity_ls", {
     cmd = { "vscode-solidity-server", "--stdio" },
     filetypes = { "solidity" },
@@ -480,9 +486,6 @@ vim.lsp.config("solidity_ls", {
 })
 
 do
-    local luacheck = require("efmls-configs.linters.luacheck")
-    local stylua = require("efmls-configs.formatters.stylua")
-
     local flake8 = require("efmls-configs.linters.flake8")
     local black = require("efmls-configs.formatters.black")
 
@@ -504,7 +507,6 @@ do
             "javascript",
             "json",
             "jsonc",
-            "lua",
             "markdown",
             "python",
             "rust",
@@ -520,7 +522,6 @@ do
                 javascript = { eslint_d, prettier_d },
                 json = { eslint_d, fixjson },
                 jsonc = { eslint_d, fixjson },
-                lua = { luacheck, stylua },
                 markdown = { prettier_d },
                 python = { flake8, black },
                 sh = { shellcheck, shfmt },
@@ -532,11 +533,9 @@ do
 end
 
 vim.lsp.enable({
-    "lua_ls",
     "pyright",
     "bashls",
     "ts_ls",
-    "gopls",
     "efm",
     "solidity_ls",
 })
