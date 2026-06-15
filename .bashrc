@@ -15,7 +15,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export MANPAGER='nvim +Man!'
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
-export PATH="$PATH:$HOME/.config/.foundry/bin"
+export PATH="$HOME/.foundry/bin:$PATH"
 export GOPATH=$HOME/.local/share/go
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '{.git,.local,.cache,mozilla,.cargo,.npm,.vscode-oss}'"
 export FZF_DEFAULT_OPTS="--height 50% --border --list-border --input-border --preview 'bat --color=always {}'"

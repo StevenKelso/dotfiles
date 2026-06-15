@@ -157,7 +157,7 @@ layout {
 
 // programs to start at login
 spawn-at-startup "awww-daemon"
-spawn-at-startup "wlsunset" "-t" "3400" "-T" "4000" "-s" "20:00" "-S" "08:00"
+spawn-at-startup "wlsunset" "-t" "3400" "-T" "3800" "-s" "20:00" "-S" "08:00"
 spawn-at-startup "swayidle"
 spawn-at-startup "ironbar"
 spawn-at-startup "mako"
