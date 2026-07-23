@@ -97,6 +97,9 @@ layout {
     // Set gaps around windows in logical pixels.
     gaps 16
 
+    // column should be centered when it's the only column on screen
+    always-center-single-column
+
     // When to center a column when changing focus: never | always | on-overflow
     center-focused-column "never"
 
@@ -157,7 +160,7 @@ layout {
 
 // programs to start at login
 spawn-at-startup "awww-daemon"
-spawn-at-startup "wlsunset" "-t" "3400" "-T" "3800" "-s" "20:00" "-S" "08:00"
+spawn-at-startup "wlsunset" "-t" "3600" "-T" "4000" "-s" "20:00" "-S" "08:00"
 spawn-at-startup "swayidle"
 spawn-at-startup "ironbar"
 spawn-at-startup "mako"
@@ -340,11 +343,6 @@ binds {
 
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-
-    // While maximize-column leaves gaps and borders around the window,
-    // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
-    // This bind corresponds to normal window maximizing,
-    // e.g. by double-clicking on the titlebar.
     Mod+M { maximize-window-to-edges; }
 
     // Expand the focused column to space not taken up by other fully visible columns.

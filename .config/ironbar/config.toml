@@ -22,6 +22,7 @@ type = "sys_info"
 format = [
     "{cpu_percent}% ",
     "{memory_percent}% ",
+    "{disk_percent}% ",
 ]
 
 [end.interval]
