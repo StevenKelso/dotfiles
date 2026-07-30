@@ -160,12 +160,12 @@ layout {
 
 // programs to start at login
 spawn-at-startup "awww-daemon"
+spawn-at-startup "awww" "img" "~/.config/images/course_of_empire_destruction.jpg"
 spawn-at-startup "wlsunset" "-t" "3600" "-T" "4000" "-s" "20:00" "-S" "08:00"
 spawn-at-startup "swayidle"
 spawn-at-startup "ironbar"
 spawn-at-startup "mako"
 spawn-at-startup "udiskie"
-spawn-at-startup "sleep 2 && awww img ~/.config/images/course_of_empire_destruction.jpg"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
