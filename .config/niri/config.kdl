@@ -232,7 +232,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+R hotkey-overlay-title="Run Application: rofi" { spawn "~/.config/rofi/scripts/launcher.sh"; }
     Mod+P hotkey-overlay-title="Run PowerMenu: rofi" { spawn "~/.config/rofi/scripts/powermenu.sh"; }
-    Mod+B hotkey-overlay-title="Run WebBrowser: firefox" { spawn "firefox"; }
+    Mod+B hotkey-overlay-title="Run WebBrowser" { spawn "brave"; }
     Super+ESCAPE hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill alacritty || exec alacritty"; }
 
