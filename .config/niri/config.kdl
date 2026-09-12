@@ -178,14 +178,6 @@ hotkey-overlay {
 // If the client will specifically ask for CSD, the request will be honored.
 prefer-no-csd
 
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
-// The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
-
 // Animation settings. The wiki explains how to configure individual animations
 animations {
     on
@@ -235,6 +227,10 @@ binds {
     Mod+B hotkey-overlay-title="Run WebBrowser" { spawn "brave"; }
     Super+ESCAPE hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill alacritty || exec alacritty"; }
+
+    // screenshots
+    Mod+T { spawn "~/.config/scripts/screenshot.sh" "output"; }
+    Mod+Shift+T { spawn "~/.config/scripts/screenshot.sh" "region"; }
 
     // volume
     XF86AudioRaiseVolume allow-when-locked=true { spawn "~/.config/scripts/volume_up.sh"; }
@@ -385,10 +381,6 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
-
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
