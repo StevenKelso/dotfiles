@@ -47,6 +47,7 @@ alias tldr="tldr --short-options"
 alias diff="diff --color=auto"
 alias rmako="makoctl reload"
 alias rironbar="killall ironbar && niri msg action spawn -- ironbar"
+alias png2jpg="$HOME/.config/scripts/png2jpg.sh"
 
 # fuzzy cd
 fcd() {
