@@ -17,7 +17,7 @@ export MANPAGER='nvim +Man!'
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 export PATH="$HOME/.foundry/bin:$PATH"
 export GOPATH=$HOME/.local/share/go
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '{.git,.local,.cache,mozilla,.cargo,.npm,.vscode-oss}'"
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude '{.git,.local,.cache,mozilla,.cargo,.npm,.vscode-oss,BraveSoftware}'"
 export FZF_DEFAULT_OPTS="--height 50% --border --list-border --input-border --preview 'bat --color=always {}'"
 
 # starship
@@ -61,6 +61,7 @@ fcd() {
         --exclude .cargo \
         --exclude .npm \
         --exclude .vscode-oss \
+        --exclude BraveSoftware \
         "" "$HOME" | fzf --preview 'eza -la --icons --git --color=always {}') || return
     cd "$dir"
 }
