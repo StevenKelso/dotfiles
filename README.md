@@ -2,8 +2,6 @@
 
 My personal Linux configuration files.
 
-![screenshot](.config/images/dotfiles_01.png)
-
 ## Stack
 
 | Tool | Purpose |
@@ -30,14 +28,10 @@ stow -t "$HOME" .
 ```
 
 > [!WARNING]
-> Stow will fail if conflicting files already exist. Back up or remove any existing configs first (e.g. `~/.bashrc`, `~/.config/hypr/`).
+> Stow will fail if conflicting files already exist. Back up or remove any existing configs first
 
 To remove symlinks:
 
 ```bash
 stow -D -t "$HOME" .
 ```
-
-## Wallpaper
-
-The wallpaper is *The Course of Empire: Destruction* (1836) by Thomas Cole, modified for ultrawide monitors.

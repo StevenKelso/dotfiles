@@ -333,17 +333,10 @@ local setup_treesitter = function()
     treesitter.setup({})
     local ensure_installed = {
         "bash",
-        "css",
-        "html",
-        "json",
-        "javascript",
         "lua",
         "markdown",
         "python",
-        "rasi",
-        "rust",
         "solidity",
-        "typescript",
         "vim",
         "vimdoc",
     }
@@ -377,33 +370,33 @@ end
 setup_treesitter()
 
 -- ============================================================================
--- LSP, Linting, Formatting & Completion
+-- LSP, Linting, and Formatting
 -- ============================================================================
 
 -- mason
 require("mason").setup({})
 
 local diagnostic_signs = {
-    Error = " ",
-    Warn = " ",
+    Error = "",
+    Warn = "",
     Hint = "",
     Info = "",
 }
 
--- prettierd
--- typescript-language-server
--- pyright
--- black
--- bash-language-server
--- efm
--- eslint_d
--- fixjson
--- flake8
--- shellcheck
--- shfmt
--- solhint
--- vscode-solidity-server
-
+-- Install these via :Mason
+-- LSPs:
+    -- pyright (python)
+    -- bash-language-server (bash)
+    -- vscode-solidity-server (solidity)
+    -- efm (linter/formatter wrapper, see below)
+-- Linters:
+    -- flake8 (python)
+    -- shellcheck (bash)
+    -- solhint (solidity)
+-- Formatters:
+    -- black (python)
+    -- shfmt (bash)
+    -- forge_fmt (solidity: install with foundry, not mason)
 
 vim.diagnostic.config({
     virtual_text = { prefix = "●", spacing = 4 },
@@ -449,13 +442,6 @@ local function lsp_on_attach(ev)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
     vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-
-    -- vim.keymap.set("n", "<leader>fd", function()
-    --     require("fzf-lua").lsp_definitions({
-    --         jump1 = true,
-    --         jump1_action = require("fzf-lua.actions").file_edit,
-    --     })
-    -- end, opts)
 
     vim.keymap.set("n", "<leader>fd", function()
         local params = vim.lsp.util.make_position_params()
@@ -505,11 +491,8 @@ vim.keymap.set("n", "<leader>dq", function()
     vim.diagnostic.setloclist({ open = true })
 end, { desc = "Open diagnostic list" })
 
--- blink stuff goes here
-
 vim.lsp.config("pyright", {})
 vim.lsp.config("bashls", {})
-vim.lsp.config("ts_ls", {})
 vim.lsp.config("solidity_ls", {
     cmd = { "vscode-solidity-server", "--stdio" },
     filetypes = { "solidity" },
@@ -520,11 +503,6 @@ do
     local flake8 = require("efmls-configs.linters.flake8")
     local black = require("efmls-configs.formatters.black")
 
-    local eslint_d = require("efmls-configs.linters.eslint_d")
-    local prettier_d = require("efmls-configs.formatters.prettier_d")
-
-    local fixjson = require("efmls-configs.formatters.fixjson")
-
     local shellcheck = require("efmls-configs.linters.shellcheck")
     local shfmt = require("efmls-configs.formatters.shfmt")
 
@@ -533,31 +511,16 @@ do
 
     vim.lsp.config("efm", {
         filetypes = {
-            "css",
-            "html",
-            "javascript",
-            "json",
-            "jsonc",
-            "markdown",
             "python",
-            "rust",
             "sh",
             "solidity",
-            "typescript",
         },
         init_options = { documentFormatting = true },
         settings = {
             languages = {
-                css = { prettier_d },
-                html = { prettier_d },
-                javascript = { eslint_d, prettier_d },
-                json = { eslint_d, fixjson },
-                jsonc = { eslint_d, fixjson },
-                markdown = { prettier_d },
                 python = { flake8, black },
                 sh = { shellcheck, shfmt },
                 solidity = { solhint, forge_fmt },
-                typescript = { eslint_d, prettier_d },
             },
         },
     })
@@ -566,7 +529,6 @@ end
 vim.lsp.enable({
     "pyright",
     "bashls",
-    "ts_ls",
     "efm",
     "solidity_ls",
 })
