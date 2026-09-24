@@ -3,6 +3,8 @@ input {
         xkb {
         }
         numlock
+        repeat-delay 250
+        repeat-rate 40
     }
 
     touchpad {
