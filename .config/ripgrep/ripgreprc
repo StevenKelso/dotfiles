@@ -3,6 +3,14 @@
 --glob
 !**/.git/*
 --glob
-!**/.mozilla/*
---glob
 !**/.cache/*
+--glob
+!**/mozilla/*
+--glob
+!**/.cargo/*
+--glob
+!**/.npm/*
+--glob
+!**/.vscode-oss/*
+--glob
+!**/BraveSoftware/*

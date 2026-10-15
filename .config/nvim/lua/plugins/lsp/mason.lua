@@ -1,0 +1,21 @@
+require("mason").setup({})
+
+-- Install these via :Mason
+--
+-- LSPs:
+--   pyright
+--   bash-language-server
+--   vscode-solidity-server
+--   efm
+--
+-- Linters:
+--   flake8
+--   shellcheck
+--   solhint
+--
+-- Formatters:
+--   black
+--   shfmt
+--   forge_fmt
+--
+-- forge_fmt is installed through Foundry, not Mason.

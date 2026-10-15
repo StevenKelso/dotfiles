@@ -26,7 +26,6 @@ eval "$(starship init bash)"
 # fzf
 eval "$(fzf --bash)"
 
-# aliases
 # ls / eza
 alias ls="eza"
 alias ll="eza -lh"
@@ -34,19 +33,19 @@ alias la="eza -lah"
 alias lst="eza -lhTL1 --icons --git"
 alias lst1="eza -lhTL2 --icons --git"
 alias lst2="eza -lhTL3 --icons --git"
-alias lsta="eza -lahTL1 --icons --git"
-alias lsta1="eza -lahTL2 --icons --git"
-alias lsta2="eza -lahTL3 --icons --git"
-alias lstag="eza -lahTL1 --icons --git --git-ignore"
-alias lstag1="eza -lahTL2 --icons --git --git-ignore"
-alias lstag2="eza -lahTL3 --icons --git --git-ignore"
+alias lst3="eza -lhTL4 --icons --git"
+alias lst4="eza -lhTL5 --icons --git"
+alias lsta="eza -lahTL1 --icons --git --git-ignore"
+alias lsta1="eza -lahTL2 --icons --git --git-ignore"
+alias lsta2="eza -lahTL3 --icons --git --git-ignore"
+alias lsta3="eza -lahTL4 --icons --git --git-ignore"
+alias lsta4="eza -lahTL5 --icons --git --git-ignore"
+
 # convenience
 alias bashrc="nvim $HOME/.bashrc"
 alias dots="cd $HOME/repos/stevenkelso/dotfiles"
 alias tldr="tldr --short-options"
 alias diff="diff --color=auto"
-alias rmako="makoctl reload"
-alias rironbar="killall ironbar && niri msg action spawn -- ironbar"
 
 # fuzzy cd
 fcd() {
