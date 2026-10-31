@@ -1,13 +1,3 @@
--- imports
--- require("hyprland/monitors")
--- require("hyprland/autostart")
--- require("hyprland/appearance")
--- require("hyprland/input")
--- require("hyprland/windows_workspaces")
--- require("hyprland/keybinds")
--- require("hyprland/permissions")
--- require("hyprland/misc")
-
 ------------------
 ---- MONITORS ----
 ------------------
@@ -178,27 +168,27 @@ hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-")
 
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 10,
+        gaps_in  = 0,
+        gaps_out = 0,
         border_size = 2,
         col = {
-            active_border   = { colors = {"rgb(d8a657)", "rgb(181616)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = "rgb(d8a657)",
+            inactive_border = "rgb(595959)",
         },
         resize_on_border = false,
         allow_tearing = false,
-        layout = "master",
+        layout = "scrolling",
     },
 
     decoration = {
         rounding       = 0,
-        rounding_power = 2,
+        rounding_power = 5,
         active_opacity   = 1.0,
         inactive_opacity = 1.0,
         shadow = {
             enabled      = true,
             range        = 5,
-            render_power = 5,
+            render_power = 4,
             color        = 0xee111111,
         },
         blur = {
@@ -219,7 +209,6 @@ hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}
 hl.curve("linear",         { type = "bezier", points = { {0, 0},       {1, 1}       } })
 hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } })
 hl.curve("quick",          { type = "bezier", points = { {0.15, 0},    {0.1, 1}     } })
-
 hl.curve("easy",           { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 10,   bezier = "default" })
